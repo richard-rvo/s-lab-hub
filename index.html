@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>S·Lab — Prompts IA na Prática · Richard Vieira</title>
+<title>S-LAB — Laboratório de Desenvolvimento Profissional em Saúde</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="style.css">
 </head>
@@ -17,7 +17,7 @@
 <!-- NAV -->
 <nav>
   <div class="nav-logo">
-    <img src="images/logo-color.png" alt="S·Lab Logo">
+    <img src="images/logo-color.png" alt="S-LAB Logo">
   </div>
   <ul class="nav-tabs" id="navTabs">
     <li><button class="nav-tab active" data-tab="home">Início</button></li>
@@ -27,14 +27,15 @@
     <li><button class="nav-tab" data-tab="calendario">Calendário</button></li>
     <li><button class="nav-tab" data-tab="imagens">Imagens</button></li>
     <li><button class="nav-tab" data-tab="slides">Slides</button></li>
+    <li><button class="nav-tab" data-tab="imagempessoal">Imagem Pessoal</button></li>
   </ul>
-  <span class="nav-badge">RV · 2026</span>
+  <span class="nav-badge">S-LAB · 2026</span>
 </nav>
 
 <!-- HERO -->
 <section class="hero" id="heroSection">
   <div>
-    <div class="hero-eyebrow">IA na Prática · Aulão Exclusivo</div>
+    <div class="hero-eyebrow">Laboratório de Desenvolvimento Profissional em Saúde</div>
     <h1>Prompts que<br><span class="grad">convertem.</span></h1>
     <p class="hero-sub">"A IA não vai substituir o profissional — mas o profissional que usa IA vai substituir o que não usa."</p>
     <div class="hero-actions">
@@ -44,11 +45,11 @@
   </div>
   <div class="hero-visual">
     <div class="hero-mark">
-      <img src="images/logo-color-simbol.png" alt="S·Lab Symbol" class="hero-mark-img">
+      <img src="images/logo-color-simbol.png" alt="S-LAB Symbol" class="hero-mark-img">
     </div>
-    <div class="hero-chip chip-1">⚡️ 5 Agents prontos</div>
+    <div class="hero-chip chip-1">⚡️ 6 Agents prontos</div>
     <div class="hero-chip chip-2">🎯 Framework P·C·T·F·R</div>
-    <div class="hero-chip chip-3">✦ Geração via IA</div>
+    <div class="hero-chip chip-3">✦ Geração de Prompts</div>
   </div>
 </section>
 
@@ -76,18 +77,6 @@
 
 <!-- MAIN -->
 <main>
-
-  <!-- API Key setup -->
-  <div class="api-notice">
-    <div class="api-notice-icon">🔑</div>
-    <div class="api-notice-text">
-      <strong>Para usar geração via IA diretamente aqui:</strong> cole sua chave da API Anthropic abaixo. Ela fica salva só no seu navegador, nunca sai do seu dispositivo.
-    </div>
-  </div>
-  <div class="api-key-input-row">
-    <input type="password" class="form-input" id="apiKeyInput" placeholder="sk-ant-…" />
-    <button class="api-save-btn" onclick="saveApiKey()">Salvar chave</button>
-  </div>
 
   <!-- ═══════════════════════════════ HOME ═══════════════════════════════ -->
   <div class="tab-page active" id="tab-home">
@@ -178,6 +167,20 @@
         </div>
         <div class="prompt-card-body">
           <p style="font-size:13px;color:var(--stone);font-family:var(--font-display);">Gamma.app · Consulta · Palestra · Proposta</p>
+        </div>
+      </div>
+
+      <div class="prompt-card" style="cursor:pointer" onclick="showTab('imagempessoal')">
+        <div class="prompt-card-header">
+          <div class="prompt-icon">📸</div>
+          <div class="prompt-meta">
+            <div class="prompt-tag">Agent 6</div>
+            <h3>Imagem Pessoal (RostoIA)</h3>
+            <p>Retratos profissionais e posts com lettering baseados no seu rosto e DNA visual.</p>
+          </div>
+        </div>
+        <div class="prompt-card-body">
+          <p style="font-size:13px;color:var(--stone);font-family:var(--font-display);">Rosto real · Portfólio realista · Posts com Lettering</p>
         </div>
       </div>
     </div>
@@ -275,6 +278,7 @@ Sem termos técnicos. Tom [leve e motivador].
           </div>
         </div>
         <div class="prompt-card-body">
+          <div class="step-badge">Passo 1: Preencher Dados</div>
           <div class="form-group">
             <label class="form-label">P — Papel (quem é a IA?)</label>
             <input type="text" class="form-input" id="pctfr-papel" placeholder="Ex: nutricionista especialista em emagrecimento para mulheres 30–45 anos" />
@@ -300,9 +304,18 @@ Sem termos técnicos. Tom [leve e motivador].
             <span id="pctfr-btn-text">Gerar prompt estruturado →</span>
           </button>
           <div class="output-area" id="pctfr-output">
-            <div class="output-text" id="pctfr-result"></div>
-            <div class="output-actions">
-              <button class="copy-btn" onclick="copyOutput('pctfr-result', this)">Copiar</button>
+            <div class="output-header">
+              <span class="output-header-title">Passo 2: Prompt P·C·T·F·R Gerado</span>
+              <button class="copy-btn" onclick="copyOutput('pctfr-result', this)">Copiar Prompt</button>
+            </div>
+            <textarea readonly class="output-text" id="pctfr-result"></textarea>
+            <div class="output-footer">
+              <span class="footer-label">Passo 3: Cole na sua IA favorita</span>
+              <div class="ia-links">
+                <a href="https://claude.ai" target="_blank" class="ia-link claude">Abrir Claude</a>
+                <a href="https://chatgpt.com" target="_blank" class="ia-link chatgpt">Abrir ChatGPT</a>
+                <a href="https://gemini.google.com" target="_blank" class="ia-link gemini">Abrir Gemini</a>
+              </div>
             </div>
           </div>
         </div>
@@ -320,6 +333,28 @@ Sem termos técnicos. Tom [leve e motivador].
       </div>
     </div>
 
+    <!-- Workflow Steps Grid -->
+    <div class="steps-workflow">
+      <div class="step-workflow-card">
+        <div class="step-workflow-num">1</div>
+        <div class="step-workflow-icon">✏️</div>
+        <div class="step-workflow-title">Preencha seus Dados</div>
+        <div class="step-workflow-desc">Complete os campos do formulário para personalizar o prompt com seu nicho e posicionamento.</div>
+      </div>
+      <div class="step-workflow-card">
+        <div class="step-workflow-num">2</div>
+        <div class="step-workflow-icon">📋</div>
+        <div class="step-workflow-title">Copie o Prompt</div>
+        <div class="step-workflow-desc">O prompt de sistema estruturado é gerado instantaneamente na área de texto. Clique em Copiar.</div>
+      </div>
+      <div class="step-workflow-card">
+        <div class="step-workflow-num">3</div>
+        <div class="step-workflow-icon">🤖</div>
+        <div class="step-workflow-title">Cole na sua IA</div>
+        <div class="step-workflow-desc">Clique nos atalhos rápidos para abrir o Claude, ChatGPT ou Gemini e cole o prompt como primeira mensagem.</div>
+      </div>
+    </div>
+
     <div class="prompts-grid">
       <!-- Identidade Completa -->
       <div class="prompt-card">
@@ -328,10 +363,11 @@ Sem termos técnicos. Tom [leve e motivador].
           <div class="prompt-meta">
             <div class="prompt-tag">Prompt 1.1</div>
             <h3>Identidade Visual Completa</h3>
-            <p>Paleta, tipografia, elementos visuais e DNA em uma sessão.</p>
+            <p>Paleta, tipografia, elements visuais e DNA em uma sessão.</p>
           </div>
         </div>
         <div class="prompt-card-body">
+          <div class="step-badge">Passo 1: Preencher Dados</div>
           <div class="form-group">
             <label class="form-label">Especialidade / Nicho</label>
             <input type="text" class="form-input" id="iv-especialidade" placeholder="Ex: nutricionista, fisioterapeuta, coach de carreira" />
@@ -348,14 +384,27 @@ Sem termos técnicos. Tom [leve e motivador].
             <label class="form-label">Referência visual (opcional)</label>
             <input type="text" class="form-input" id="iv-referencia" placeholder="Ex: @nomeperfil, marca X" />
           </div>
+          <div class="form-group">
+            <label class="form-label">Elementos a evitar na marca (opcional)</label>
+            <input type="text" class="form-input" id="iv-evitar" placeholder="Ex: cor vermelha, símbolos médicos clichês, fotos genéricas" />
+          </div>
           <button class="generate-btn" onclick="generateIdentidade()">
             <span class="spinner" id="iv-spin"></span>
             <span id="iv-btn-text">Gerar identidade visual →</span>
           </button>
           <div class="output-area" id="iv-output">
-            <div class="output-text" id="iv-result"></div>
-            <div class="output-actions">
-              <button class="copy-btn" onclick="copyOutput('iv-result', this)">Copiar</button>
+            <div class="output-header">
+              <span class="output-header-title">Passo 2: Prompt Identidade Visual Completa</span>
+              <button class="copy-btn" onclick="copyOutput('iv-result', this)">Copiar Prompt</button>
+            </div>
+            <textarea readonly class="output-text" id="iv-result"></textarea>
+            <div class="output-footer">
+              <span class="footer-label">Passo 3: Cole na sua IA favorita</span>
+              <div class="ia-links">
+                <a href="https://claude.ai" target="_blank" class="ia-link claude">Abrir Claude</a>
+                <a href="https://chatgpt.com" target="_blank" class="ia-link chatgpt">Abrir ChatGPT</a>
+                <a href="https://gemini.google.com" target="_blank" class="ia-link gemini">Abrir Gemini</a>
+              </div>
             </div>
           </div>
         </div>
@@ -372,6 +421,7 @@ Sem termos técnicos. Tom [leve e motivador].
           </div>
         </div>
         <div class="prompt-card-body">
+          <div class="step-badge">Passo 1: Preencher Dados</div>
           <div class="form-group">
             <label class="form-label">Especialidade</label>
             <input type="text" class="form-input" id="pt-especialidade" placeholder="Ex: psicóloga clínica" />
@@ -385,9 +435,18 @@ Sem termos técnicos. Tom [leve e motivador].
             <span id="pt-btn-text">Gerar paleta e tipografia →</span>
           </button>
           <div class="output-area" id="pt-output">
-            <div class="output-text" id="pt-result"></div>
-            <div class="output-actions">
-              <button class="copy-btn" onclick="copyOutput('pt-result', this)">Copiar</button>
+            <div class="output-header">
+              <span class="output-header-title">Passo 2: Prompt Paleta + Tipografia</span>
+              <button class="copy-btn" onclick="copyOutput('pt-result', this)">Copiar Prompt</button>
+            </div>
+            <textarea readonly class="output-text" id="pt-result"></textarea>
+            <div class="output-footer">
+              <span class="footer-label">Passo 3: Cole na sua IA favorita</span>
+              <div class="ia-links">
+                <a href="https://claude.ai" target="_blank" class="ia-link claude">Abrir Claude</a>
+                <a href="https://chatgpt.com" target="_blank" class="ia-link chatgpt">Abrir ChatGPT</a>
+                <a href="https://gemini.google.com" target="_blank" class="ia-link gemini">Abrir Gemini</a>
+              </div>
             </div>
           </div>
         </div>
@@ -404,6 +463,7 @@ Sem termos técnicos. Tom [leve e motivador].
           </div>
         </div>
         <div class="prompt-card-body">
+          <div class="step-badge">Passo 1: Preencher Dados</div>
           <div class="form-group">
             <label class="form-label">Estilo visual</label>
             <select class="form-select" id="dna-estilo">
@@ -446,9 +506,18 @@ Sem termos técnicos. Tom [leve e motivador].
             <span id="dna-btn-text">Gerar bloco DNA Visual →</span>
           </button>
           <div class="output-area" id="dna-output">
-            <div class="output-text" id="dna-result"></div>
-            <div class="output-actions">
+            <div class="output-header">
+              <span class="output-header-title">Passo 2: Bloco DNA Visual</span>
               <button class="copy-btn" onclick="copyOutput('dna-result', this)">Copiar DNA</button>
+            </div>
+            <textarea readonly class="output-text" id="dna-result"></textarea>
+            <div class="output-footer">
+              <span class="footer-label">Passo 3: Cole na sua IA favorita</span>
+              <div class="ia-links">
+                <a href="https://claude.ai" target="_blank" class="ia-link claude">Abrir Claude</a>
+                <a href="https://chatgpt.com" target="_blank" class="ia-link chatgpt">Abrir ChatGPT</a>
+                <a href="https://gemini.google.com" target="_blank" class="ia-link gemini">Abrir Gemini</a>
+              </div>
             </div>
           </div>
         </div>
@@ -466,22 +535,95 @@ Sem termos técnicos. Tom [leve e motivador].
       </div>
     </div>
 
+    <!-- Workflow Steps Grid -->
+    <div class="steps-workflow">
+      <div class="step-workflow-card">
+        <div class="step-workflow-num">1</div>
+        <div class="step-workflow-icon">✏️</div>
+        <div class="step-workflow-title">Preencha seus Dados</div>
+        <div class="step-workflow-desc">Complete os campos do formulário para personalizar o prompt com seu nicho e posicionamento.</div>
+      </div>
+      <div class="step-workflow-card">
+        <div class="step-workflow-num">2</div>
+        <div class="step-workflow-icon">📋</div>
+        <div class="step-workflow-title">Copie o Prompt</div>
+        <div class="step-workflow-desc">O prompt de sistema estruturado é gerado instantaneamente na área de texto. Clique em Copiar.</div>
+      </div>
+      <div class="step-workflow-card">
+        <div class="step-workflow-num">3</div>
+        <div class="step-workflow-icon">🤖</div>
+        <div class="step-workflow-title">Cole na sua IA</div>
+        <div class="step-workflow-desc">Clique nos atalhos rápidos para abrir o Claude, ChatGPT ou Gemini e cole o prompt como primeira mensagem.</div>
+      </div>
+    </div>
+
     <div class="quote-block">
       <p>"38 de 58 alunos citaram criação de conteúdo como a principal dor do negócio. Este Agent resolve isso."</p>
     </div>
 
     <div class="prompts-grid">
+      <!-- Agent Copywriter Completo -->
+      <div class="prompt-card" style="grid-column: 1 / -1;">
+        <div class="prompt-card-header">
+          <div class="prompt-icon">✍️</div>
+          <div class="prompt-meta">
+            <div class="prompt-tag">Prompt 2.1</div>
+            <h3>Prompt do Agent Copywriting (Persona Completa)</h3>
+            <p>Gere o prompt do sistema para configurar o Claude/ChatGPT como o Agent Copywriter da S-LAB.</p>
+          </div>
+        </div>
+        <div class="prompt-card-body">
+          <div class="step-badge">Passo 1: Preencher Dados</div>
+          <div class="form-group">
+            <label class="form-label">Especialidade / Nicho</label>
+            <input type="text" class="form-input" id="copy-especialidade" placeholder="Ex: nutricionista esportiva, cardiologista pediátrico" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Público-alvo e Dor principal</label>
+            <input type="text" class="form-input" id="copy-publico" placeholder="Ex: mulheres 30–45 anos que querem emagrecer sem radicalismos" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Tom de voz (adjetivos)</label>
+            <input type="text" class="form-input" id="copy-tom" placeholder="Ex: acolhedor, profissional, motivador" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Palavras ou abordagens a evitar (opcional)</label>
+            <input type="text" class="form-input" id="copy-evitar" placeholder="Ex: jargões técnicos, falar de emagrecimento rápido" />
+          </div>
+          <button class="generate-btn" onclick="generateCopyAgent()">
+            <span class="spinner" id="copy-agent-spin"></span>
+            <span id="copy-agent-btn-text">Gerar prompt do Agent Copywriter →</span>
+          </button>
+          <div class="output-area" id="copy-agent-output">
+            <div class="output-header">
+              <span class="output-header-title">Passo 2: Prompt do Agent Copywriter</span>
+              <button class="copy-btn" onclick="copyOutput('copy-agent-result', this)">Copiar Prompt</button>
+            </div>
+            <textarea readonly class="output-text" id="copy-agent-result"></textarea>
+            <div class="output-footer">
+              <span class="footer-label">Passo 3: Cole na sua IA favorita</span>
+              <div class="ia-links">
+                <a href="https://claude.ai" target="_blank" class="ia-link claude">Abrir Claude</a>
+                <a href="https://chatgpt.com" target="_blank" class="ia-link chatgpt">Abrir ChatGPT</a>
+                <a href="https://gemini.google.com" target="_blank" class="ia-link gemini">Abrir Gemini</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <!-- PAS -->
       <div class="prompt-card">
         <div class="prompt-card-header">
           <div class="prompt-icon">🎯</div>
           <div class="prompt-meta">
-            <div class="prompt-tag">Audiência fria · Instagram</div>
+            <div class="prompt-tag">Prompt 2.2 · Audiência fria · Instagram</div>
             <h3>PAS — Problema · Agitação · Solução</h3>
             <p>Vai direto na dor. Audiência fria responde melhor a dor do que a promessa.</p>
           </div>
         </div>
         <div class="prompt-card-body">
+          <div class="step-badge">Passo 1: Preencher Dados</div>
           <div class="form-group">
             <label class="form-label">Especialidade</label>
             <input type="text" class="form-input" id="pas-especialidade" placeholder="Ex: nutricionista esportiva" />
@@ -508,9 +650,18 @@ Sem termos técnicos. Tom [leve e motivador].
             <span id="pas-btn-text">Gerar post PAS →</span>
           </button>
           <div class="output-area" id="pas-output">
-            <div class="output-text" id="pas-result"></div>
-            <div class="output-actions">
-              <button class="copy-btn" onclick="copyOutput('pas-result', this)">Copiar post</button>
+            <div class="output-header">
+              <span class="output-header-title">Passo 2: Prompt Estruturado PAS</span>
+              <button class="copy-btn" onclick="copyOutput('pas-result', this)">Copiar Prompt</button>
+            </div>
+            <textarea readonly class="output-text" id="pas-result"></textarea>
+            <div class="output-footer">
+              <span class="footer-label">Passo 3: Cole na sua IA favorita</span>
+              <div class="ia-links">
+                <a href="https://claude.ai" target="_blank" class="ia-link claude">Abrir Claude</a>
+                <a href="https://chatgpt.com" target="_blank" class="ia-link chatgpt">Abrir ChatGPT</a>
+                <a href="https://gemini.google.com" target="_blank" class="ia-link gemini">Abrir Gemini</a>
+              </div>
             </div>
           </div>
         </div>
@@ -521,12 +672,13 @@ Sem termos técnicos. Tom [leve e motivador].
         <div class="prompt-card-header">
           <div class="prompt-icon">✨</div>
           <div class="prompt-meta">
-            <div class="prompt-tag">Audiência morna · Instagram</div>
+            <div class="prompt-tag">Prompt 2.3 · Audiência morna · Instagram</div>
             <h3>BAB — Before · After · Bridge</h3>
             <p>Venda a vida, não o produto. Cenário real → resultado concreto → seu método.</p>
           </div>
         </div>
         <div class="prompt-card-body">
+          <div class="step-badge">Passo 1: Preencher Dados</div>
           <div class="form-group">
             <label class="form-label">Público</label>
             <input type="text" class="form-input" id="bab-publico" placeholder="Ex: mães que perderam a autoconfiança após a maternidade" />
@@ -548,9 +700,18 @@ Sem termos técnicos. Tom [leve e motivador].
             <span id="bab-btn-text">Gerar post BAB →</span>
           </button>
           <div class="output-area" id="bab-output">
-            <div class="output-text" id="bab-result"></div>
-            <div class="output-actions">
-              <button class="copy-btn" onclick="copyOutput('bab-result', this)">Copiar post</button>
+            <div class="output-header">
+              <span class="output-header-title">Passo 2: Prompt Estruturado BAB</span>
+              <button class="copy-btn" onclick="copyOutput('bab-result', this)">Copiar Prompt</button>
+            </div>
+            <textarea readonly class="output-text" id="bab-result"></textarea>
+            <div class="output-footer">
+              <span class="footer-label">Passo 3: Cole na sua IA favorita</span>
+              <div class="ia-links">
+                <a href="https://claude.ai" target="_blank" class="ia-link claude">Abrir Claude</a>
+                <a href="https://chatgpt.com" target="_blank" class="ia-link chatgpt">Abrir ChatGPT</a>
+                <a href="https://gemini.google.com" target="_blank" class="ia-link gemini">Abrir Gemini</a>
+              </div>
             </div>
           </div>
         </div>
@@ -561,12 +722,13 @@ Sem termos técnicos. Tom [leve e motivador].
         <div class="prompt-card-header">
           <div class="prompt-icon">🔥</div>
           <div class="prompt-meta">
-            <div class="prompt-tag">Audiência quente · Oferta direta</div>
+            <div class="prompt-tag">Prompt 2.4 · Audiência quente · Oferta direta</div>
             <h3>AIDA — Atenção · Interesse · Desejo · Ação</h3>
             <p>Para quando o público já te conhece e está pronto para agir.</p>
           </div>
         </div>
         <div class="prompt-card-body">
+          <div class="step-badge">Passo 1: Preencher Dados</div>
           <div class="form-group">
             <label class="form-label">O que está comunicando / oferta</label>
             <input type="text" class="form-input" id="aida-oferta" placeholder="Ex: abertura de consulta online de avaliação postural" />
@@ -584,9 +746,18 @@ Sem termos técnicos. Tom [leve e motivador].
             <span id="aida-btn-text">Gerar post AIDA →</span>
           </button>
           <div class="output-area" id="aida-output">
-            <div class="output-text" id="aida-result"></div>
-            <div class="output-actions">
-              <button class="copy-btn" onclick="copyOutput('aida-result', this)">Copiar post</button>
+            <div class="output-header">
+              <span class="output-header-title">Passo 2: Prompt Estruturado AIDA</span>
+              <button class="copy-btn" onclick="copyOutput('aida-result', this)">Copiar Prompt</button>
+            </div>
+            <textarea readonly class="output-text" id="aida-result"></textarea>
+            <div class="output-footer">
+              <span class="footer-label">Passo 3: Cole na sua IA favorita</span>
+              <div class="ia-links">
+                <a href="https://claude.ai" target="_blank" class="ia-link claude">Abrir Claude</a>
+                <a href="https://chatgpt.com" target="_blank" class="ia-link chatgpt">Abrir ChatGPT</a>
+                <a href="https://gemini.google.com" target="_blank" class="ia-link gemini">Abrir Gemini</a>
+              </div>
             </div>
           </div>
         </div>
@@ -597,12 +768,13 @@ Sem termos técnicos. Tom [leve e motivador].
         <div class="prompt-card-header">
           <div class="prompt-icon">⚓</div>
           <div class="prompt-meta">
-            <div class="prompt-tag">Abertura</div>
+            <div class="prompt-tag">Prompt 2.5 · Abertura</div>
             <h3>Ganchos que param o scroll</h3>
             <p>A primeira linha decide se o algoritmo distribui ou enterra seu post.</p>
           </div>
         </div>
         <div class="prompt-card-body">
+          <div class="step-badge">Passo 1: Preencher Dados</div>
           <div class="form-group">
             <label class="form-label">Nicho / especialidade</label>
             <input type="text" class="form-input" id="gancho-nicho" placeholder="Ex: dermatologista estética" />
@@ -627,9 +799,18 @@ Sem termos técnicos. Tom [leve e motivador].
             <span id="gancho-btn-text">Gerar ganchos →</span>
           </button>
           <div class="output-area" id="gancho-output">
-            <div class="output-text" id="gancho-result"></div>
-            <div class="output-actions">
-              <button class="copy-btn" onclick="copyOutput('gancho-result', this)">Copiar ganchos</button>
+            <div class="output-header">
+              <span class="output-header-title">Passo 2: Prompt Ganchos</span>
+              <button class="copy-btn" onclick="copyOutput('gancho-result', this)">Copiar Prompt</button>
+            </div>
+            <textarea readonly class="output-text" id="gancho-result"></textarea>
+            <div class="output-footer">
+              <span class="footer-label">Passo 3: Cole na sua IA favorita</span>
+              <div class="ia-links">
+                <a href="https://claude.ai" target="_blank" class="ia-link claude">Abrir Claude</a>
+                <a href="https://chatgpt.com" target="_blank" class="ia-link chatgpt">Abrir ChatGPT</a>
+                <a href="https://gemini.google.com" target="_blank" class="ia-link gemini">Abrir Gemini</a>
+              </div>
             </div>
           </div>
         </div>
@@ -644,6 +825,28 @@ Sem termos técnicos. Tom [leve e motivador].
       <div class="agent-info">
         <h2>Calendário de Conteúdo</h2>
         <p>Consistência bate frequência — 3x por semana consistente supera 7x irregular.</p>
+      </div>
+    </div>
+
+    <!-- Workflow Steps Grid -->
+    <div class="steps-workflow">
+      <div class="step-workflow-card">
+        <div class="step-workflow-num">1</div>
+        <div class="step-workflow-icon">✏️</div>
+        <div class="step-workflow-title">Preencha seus Dados</div>
+        <div class="step-workflow-desc">Complete os campos do formulário para personalizar o prompt com seu nicho e posicionamento.</div>
+      </div>
+      <div class="step-workflow-card">
+        <div class="step-workflow-num">2</div>
+        <div class="step-workflow-icon">📋</div>
+        <div class="step-workflow-title">Copie o Prompt</div>
+        <div class="step-workflow-desc">O prompt de sistema estruturado é gerado instantaneamente na área de texto. Clique em Copiar.</div>
+      </div>
+      <div class="step-workflow-card">
+        <div class="step-workflow-num">3</div>
+        <div class="step-workflow-icon">🤖</div>
+        <div class="step-workflow-title">Cole na sua IA</div>
+        <div class="step-workflow-desc">Clique nos atalhos rápidos para abrir o Claude, ChatGPT ou Gemini e cole o prompt como primeira mensagem.</div>
       </div>
     </div>
 
@@ -685,17 +888,26 @@ Sem termos técnicos. Tom [leve e motivador].
           </div>
         </div>
         <div class="prompt-card-body">
+          <div class="step-badge">Passo 1: Preencher Dados</div>
           <div class="form-group">
             <label class="form-label">Especialidade</label>
             <input type="text" class="form-input" id="cal-especialidade" placeholder="Ex: fisioterapeuta especialista em dor crônica" />
           </div>
           <div class="form-group">
-            <label class="form-label">Público-alvo</label>
+            <label class="form-label">Público-alvo e Dor Principal</label>
             <input type="text" class="form-input" id="cal-publico" placeholder="Ex: adultos 35–55 anos com dor nas costas por trabalho sedentário" />
           </div>
           <div class="form-group">
-            <label class="form-label">Tom da comunicação</label>
-            <input type="text" class="form-input" id="cal-tom" placeholder="Ex: técnico mas acessível, empático, direto" />
+            <label class="form-label">Formatos Desejados</label>
+            <input type="text" class="form-input" id="cal-formatos" placeholder="Ex: carrossel, reels, estático, stories" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Foco / Destaque do Mês</label>
+            <input type="text" class="form-input" id="cal-foco" placeholder="Ex: agendamento de check-up postural anual, vendas da mentoria" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Temas ou Abordagens a Evitar (opcional)</label>
+            <input type="text" class="form-input" id="cal-evitar" placeholder="Ex: falar de cirurgia, termos médicos complexos" />
           </div>
           <div class="form-group">
             <label class="form-label">Nº de posts</label>
@@ -710,9 +922,18 @@ Sem termos técnicos. Tom [leve e motivador].
             <span id="cal-btn-text">Gerar calendário editorial →</span>
           </button>
           <div class="output-area" id="cal-output">
-            <div class="output-text" id="cal-result"></div>
-            <div class="output-actions">
-              <button class="copy-btn" onclick="copyOutput('cal-result', this)">Copiar calendário</button>
+            <div class="output-header">
+              <span class="output-header-title">Passo 2: Prompt Calendário Editorial</span>
+              <button class="copy-btn" onclick="copyOutput('cal-result', this)">Copiar Prompt</button>
+            </div>
+            <textarea readonly class="output-text" id="cal-result"></textarea>
+            <div class="output-footer">
+              <span class="footer-label">Passo 3: Cole na sua IA favorita</span>
+              <div class="ia-links">
+                <a href="https://claude.ai" target="_blank" class="ia-link claude">Abrir Claude</a>
+                <a href="https://chatgpt.com" target="_blank" class="ia-link chatgpt">Abrir ChatGPT</a>
+                <a href="https://gemini.google.com" target="_blank" class="ia-link gemini">Abrir Gemini</a>
+              </div>
             </div>
           </div>
         </div>
@@ -730,6 +951,28 @@ Sem termos técnicos. Tom [leve e motivador].
       </div>
     </div>
 
+    <!-- Workflow Steps Grid -->
+    <div class="steps-workflow">
+      <div class="step-workflow-card">
+        <div class="step-workflow-num">1</div>
+        <div class="step-workflow-icon">✏️</div>
+        <div class="step-workflow-title">Preencha seus Dados</div>
+        <div class="step-workflow-desc">Complete os campos do formulário para personalizar o prompt com seu nicho e posicionamento.</div>
+      </div>
+      <div class="step-workflow-card">
+        <div class="step-workflow-num">2</div>
+        <div class="step-workflow-icon">📋</div>
+        <div class="step-workflow-title">Copie o Prompt</div>
+        <div class="step-workflow-desc">O prompt de sistema estruturado é gerado instantaneamente na área de texto. Clique em Copiar.</div>
+      </div>
+      <div class="step-workflow-card">
+        <div class="step-workflow-num">3</div>
+        <div class="step-workflow-icon">🤖</div>
+        <div class="step-workflow-title">Cole na sua IA</div>
+        <div class="step-workflow-desc">Clique nos atalhos rápidos para abrir o Claude, ChatGPT ou Gemini e cole o prompt como primeira mensagem.</div>
+      </div>
+    </div>
+
     <div class="prompts-grid">
       <!-- Framework 6 elementos -->
       <div class="prompt-card">
@@ -742,6 +985,7 @@ Sem termos técnicos. Tom [leve e motivador].
           </div>
         </div>
         <div class="prompt-card-body">
+          <div class="step-badge">Passo 1: Preencher Dados</div>
           <div class="form-group">
             <label class="form-label">Sujeito (o que está na imagem)</label>
             <input type="text" class="form-input" id="img-sujeito" placeholder="Ex: mãos segurando um bowl de açaí com frutas frescas" />
@@ -784,9 +1028,18 @@ Sem termos técnicos. Tom [leve e motivador].
             <span id="img-btn-text">Gerar prompt de imagem →</span>
           </button>
           <div class="output-area" id="img-output">
-            <div class="output-text" id="img-result"></div>
-            <div class="output-actions">
-              <button class="copy-btn" onclick="copyOutput('img-result', this)">Copiar e colar no DALL-E</button>
+            <div class="output-header">
+              <span class="output-header-title">Passo 2: Prompt de Imagem Personalizado</span>
+              <button class="copy-btn" onclick="copyOutput('img-result', this)">Copiar Prompt</button>
+            </div>
+            <textarea readonly class="output-text" id="img-result"></textarea>
+            <div class="output-footer">
+              <span class="footer-label">Passo 3: Cole na sua IA favorita</span>
+              <div class="ia-links">
+                <a href="https://claude.ai" target="_blank" class="ia-link claude">Abrir Claude</a>
+                <a href="https://chatgpt.com" target="_blank" class="ia-link chatgpt">Abrir ChatGPT</a>
+                <a href="https://gemini.google.com" target="_blank" class="ia-link gemini">Abrir Gemini</a>
+              </div>
             </div>
           </div>
         </div>
@@ -803,6 +1056,7 @@ Sem termos técnicos. Tom [leve e motivador].
           </div>
         </div>
         <div class="prompt-card-body">
+          <div class="step-badge">Passo 1: Preencher Dados</div>
           <div class="form-group">
             <label class="form-label">Especialidade</label>
             <input type="text" class="form-input" id="car-especialidade" placeholder="Ex: nutricionista funcional" />
@@ -824,9 +1078,18 @@ Sem termos técnicos. Tom [leve e motivador].
             <span id="car-btn-text">Gerar carrossel →</span>
           </button>
           <div class="output-area" id="car-output">
-            <div class="output-text" id="car-result"></div>
-            <div class="output-actions">
-              <button class="copy-btn" onclick="copyOutput('car-result', this)">Copiar carrossel</button>
+            <div class="output-header">
+              <span class="output-header-title">Passo 2: Prompt Carrossel Personalizado</span>
+              <button class="copy-btn" onclick="copyOutput('car-result', this)">Copiar Prompt</button>
+            </div>
+            <textarea readonly class="output-text" id="car-result"></textarea>
+            <div class="output-footer">
+              <span class="footer-label">Passo 3: Cole na sua IA favorita</span>
+              <div class="ia-links">
+                <a href="https://claude.ai" target="_blank" class="ia-link claude">Abrir Claude</a>
+                <a href="https://chatgpt.com" target="_blank" class="ia-link chatgpt">Abrir ChatGPT</a>
+                <a href="https://gemini.google.com" target="_blank" class="ia-link gemini">Abrir Gemini</a>
+              </div>
             </div>
           </div>
         </div>
@@ -867,6 +1130,28 @@ Sem termos técnicos. Tom [leve e motivador].
       </div>
     </div>
 
+    <!-- Workflow Steps Grid -->
+    <div class="steps-workflow">
+      <div class="step-workflow-card">
+        <div class="step-workflow-num">1</div>
+        <div class="step-workflow-icon">✏️</div>
+        <div class="step-workflow-title">Preencha seus Dados</div>
+        <div class="step-workflow-desc">Complete os campos do formulário para personalizar o prompt com seu nicho e posicionamento.</div>
+      </div>
+      <div class="step-workflow-card">
+        <div class="step-workflow-num">2</div>
+        <div class="step-workflow-icon">📋</div>
+        <div class="step-workflow-title">Copie o Prompt</div>
+        <div class="step-workflow-desc">O prompt de sistema estruturado é gerado instantaneamente na área de texto. Clique em Copiar.</div>
+      </div>
+      <div class="step-workflow-card">
+        <div class="step-workflow-num">3</div>
+        <div class="step-workflow-icon">🤖</div>
+        <div class="step-workflow-title">Cole na sua IA</div>
+        <div class="step-workflow-desc">Clique nos atalhos rápidos para abrir o Claude, ChatGPT ou Gemini e cole o prompt como primeira mensagem.</div>
+      </div>
+    </div>
+
     <div class="quote-block">
       <p>Regra dos 3: cada slide tem apenas 1 título + 1 ideia + 1 visual. Nunca dois conceitos no mesmo slide.</p>
     </div>
@@ -883,6 +1168,7 @@ Sem termos técnicos. Tom [leve e motivador].
           </div>
         </div>
         <div class="prompt-card-body">
+          <div class="step-badge">Passo 1: Preencher Dados</div>
           <div class="form-group">
             <label class="form-label">Tema</label>
             <input type="text" class="form-input" id="sl-tema" placeholder="Ex: como a alimentação afeta o sono" />
@@ -908,9 +1194,18 @@ Sem termos técnicos. Tom [leve e motivador].
             <span id="sl-btn-text">Gerar roteiro →</span>
           </button>
           <div class="output-area" id="sl-output">
-            <div class="output-text" id="sl-result"></div>
-            <div class="output-actions">
-              <button class="copy-btn" onclick="copyOutput('sl-result', this)">Copiar e colar no Gamma.app</button>
+            <div class="output-header">
+              <span class="output-header-title">Passo 2: Prompt Roteiro Personalizado</span>
+              <button class="copy-btn" onclick="copyOutput('sl-result', this)">Copiar Prompt</button>
+            </div>
+            <textarea readonly class="output-text" id="sl-result"></textarea>
+            <div class="output-footer">
+              <span class="footer-label">Passo 3: Cole na sua IA favorita</span>
+              <div class="ia-links">
+                <a href="https://claude.ai" target="_blank" class="ia-link claude">Abrir Claude</a>
+                <a href="https://chatgpt.com" target="_blank" class="ia-link chatgpt">Abrir ChatGPT</a>
+                <a href="https://gemini.google.com" target="_blank" class="ia-link gemini">Abrir Gemini</a>
+              </div>
             </div>
           </div>
         </div>
@@ -927,6 +1222,7 @@ Sem termos técnicos. Tom [leve e motivador].
           </div>
         </div>
         <div class="prompt-card-body">
+          <div class="step-badge">Passo 1: Preencher Dados</div>
           <div class="form-group">
             <label class="form-label">Serviço oferecido</label>
             <input type="text" class="form-input" id="pr-servico" placeholder="Ex: acompanhamento nutricional online 3 meses" />
@@ -946,9 +1242,18 @@ Sem termos técnicos. Tom [leve e motivador].
             <span id="pr-btn-text">Gerar proposta →</span>
           </button>
           <div class="output-area" id="pr-output">
-            <div class="output-text" id="pr-result"></div>
-            <div class="output-actions">
-              <button class="copy-btn" onclick="copyOutput('pr-result', this)">Copiar proposta</button>
+            <div class="output-header">
+              <span class="output-header-title">Passo 2: Prompt Proposta Personalizada</span>
+              <button class="copy-btn" onclick="copyOutput('pr-result', this)">Copiar Prompt</button>
+            </div>
+            <textarea readonly class="output-text" id="pr-result"></textarea>
+            <div class="output-footer">
+              <span class="footer-label">Passo 3: Cole na sua IA favorita</span>
+              <div class="ia-links">
+                <a href="https://claude.ai" target="_blank" class="ia-link claude">Abrir Claude</a>
+                <a href="https://chatgpt.com" target="_blank" class="ia-link chatgpt">Abrir ChatGPT</a>
+                <a href="https://gemini.google.com" target="_blank" class="ia-link gemini">Abrir Gemini</a>
+              </div>
             </div>
           </div>
         </div>
@@ -980,33 +1285,197 @@ Sem termos técnicos. Tom [leve e motivador].
     </div>
   </div>
 
+  <!-- ═══════════════════════════════ IMAGEM PESSOAL (ROSTOIA) ═══════════════════════════════ -->
+  <div class="tab-page" id="tab-imagempessoal">
+    <div class="agent-header">
+      <div class="agent-number">06</div>
+      <div class="agent-info">
+        <h2>Imagem Pessoal (RostoIA)</h2>
+        <p>Retratos profissionais e posts com lettering baseados no seu rosto e DNA visual.</p>
+      </div>
+    </div>
+
+    <!-- Workflow Steps Grid -->
+    <div class="steps-workflow">
+      <div class="step-workflow-card">
+        <div class="step-workflow-num">1</div>
+        <div class="step-workflow-icon">✏️</div>
+        <div class="step-workflow-title">Preencha seus Dados</div>
+        <div class="step-workflow-desc">Complete os campos do formulário para personalizar o prompt com seu nicho e posicionamento.</div>
+      </div>
+      <div class="step-workflow-card">
+        <div class="step-workflow-num">2</div>
+        <div class="step-workflow-icon">📋</div>
+        <div class="step-workflow-title">Copie o Prompt</div>
+        <div class="step-workflow-desc">O prompt de sistema estruturado é gerado instantaneamente na área de texto. Clique em Copiar.</div>
+      </div>
+      <div class="step-workflow-card">
+        <div class="step-workflow-num">3</div>
+        <div class="step-workflow-icon">🤖</div>
+        <div class="step-workflow-title">Cole na sua IA</div>
+        <div class="step-workflow-desc">Clique nos atalhos rápidos para abrir o Claude, ChatGPT ou Gemini e cole o prompt como primeira mensagem.</div>
+      </div>
+    </div>
+
+    <div class="quote-block">
+      <p>O DALL-E mantém traços gerais (tom de pele, cabelo, formato do rosto, biotipo) — não é reprodução exata. Use prompts ultra-específicos para obter a máxima semelhança.</p>
+    </div>
+
+    <div class="prompts-grid">
+      <!-- RostoIA Saúde Generator -->
+      <div class="prompt-card" style="grid-column: 1 / -1;">
+        <div class="prompt-card-header">
+          <div class="prompt-icon">📸</div>
+          <div class="prompt-meta">
+            <div class="prompt-tag">Agent 6</div>
+            <h3>Gerador RostoIA Saúde</h3>
+            <p>Preencha os dados da sua aparência, escolha o tipo de imagem desejada e gere o prompt DALL-E correspondente.</p>
+          </div>
+        </div>
+        <div class="prompt-card-body">
+          <div class="step-badge">Passo 1: Preencher Dados</div>
+          <h3 style="font-size:16px; margin-bottom:16px; font-family:var(--font-display); color:var(--ink);">1. Características Físicas</h3>
+          
+          <div class="form-group">
+            <label class="form-label">Gênero e Faixa Etária</label>
+            <input type="text" class="form-input" id="rp-genero" placeholder="Ex: Mulher de 35 anos / Homem de 40 anos" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Tom de Pele e Subtom</label>
+            <input type="text" class="form-input" id="rp-pele" placeholder="Ex: Pele clara com subtom quente / Pele negra escura com subtom frio" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Formato do Rosto</label>
+            <input type="text" class="form-input" id="rp-rosto" placeholder="Ex: Rosto oval / Rosto quadrado com maxilar marcado" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Olhos (Cor e Formato)</label>
+            <input type="text" class="form-input" id="rp-olhos" placeholder="Ex: Olhos castanhos amendoados / Olhos verdes marcantes" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Sobrancelhas (Espessura, Arco e Cor)</label>
+            <input type="text" class="form-input" id="rp-sobrancelhas" placeholder="Ex: Sobrancelhas grossas arqueadas e pretas" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Cabelo (Comprimento, Cor, Textura e Estilo)</label>
+            <input type="text" class="form-input" id="rp-cabelo" placeholder="Ex: Cabelo curto chanel liso castanho escuro / Cabelo médio cacheado ruivo" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Biotipo & Traços Marcantes (Opcional)</label>
+            <input type="text" class="form-input" id="rp-biotipo" placeholder="Ex: Biotipo magro, usa óculos de grau redondos pretos, sorriso com covinhas" />
+          </div>
+
+          <h3 style="font-size:16px; margin-top:28px; margin-bottom:16px; font-family:var(--font-display); color:var(--ink);">2. DNA Visual da Marca</h3>
+          
+          <div class="form-group">
+            <label class="form-label">Estilo Visual & Cores</label>
+            <input type="text" class="form-input" id="rp-dna-estilo" placeholder="Ex: Fotografia lifestyle editorial, paleta verde oliva e beige neutro" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Iluminação e Elementos Recorrentes</label>
+            <input type="text" class="form-input" id="rp-dna-luz" placeholder="Ex: Luz natural suave de janela, consultório médico moderno e plantas de fundo" />
+          </div>
+
+          <h3 style="font-size:16px; margin-top:28px; margin-bottom:16px; font-family:var(--font-display); color:var(--ink);">3. Configuração da Imagem</h3>
+          
+          <div class="form-group">
+            <label class="form-label">Tipo de Produto</label>
+            <select class="form-select" id="rp-tipo-produto" onchange="toggleRostoIAType()">
+              <option value="portfolio">Portfólio Profissional (Retrato realista sem texto)</option>
+              <option value="post">Post com Lettering (Composição com área para texto)</option>
+            </select>
+          </div>
+
+          <!-- Fields specific to PORTFOLIO -->
+          <div id="rp-group-portfolio">
+            <div class="form-group">
+              <label class="form-label">Contexto (Ambiente)</label>
+              <select class="form-select" id="rp-port-contexto">
+                <option value="consultorio">Consultório / Clínica</option>
+                <option value="externo">Externo / Lifestyle</option>
+                <option value="estudio">Estúdio Neutro</option>
+                <option value="cafe">Café Moderno</option>
+                <option value="urbano">Urbano</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Enquadramento</label>
+              <select class="form-select" id="rp-port-enquadramento">
+                <option value="rosto">Close-up (Rosto)</option>
+                <option value="meio-corpo" selected>Plano Médio (Meio corpo)</option>
+                <option value="corpo-inteiro">Plano Inteiro (Corpo inteiro)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Expressão e Ação</label>
+              <input type="text" class="form-input" id="rp-port-expressao" placeholder="Ex: Olhando para a câmera sorrindo / segurando um tablet e conversando" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Vestimenta (Roupa)</label>
+              <input type="text" class="form-input" id="rp-port-roupa" placeholder="Ex: Jaleco branco por cima de camisa social / Roupa casual chique" />
+            </div>
+          </div>
+
+          <!-- Fields specific to POST WITH LETTERING -->
+          <div id="rp-group-post" style="display:none;">
+            <div class="form-group">
+              <label class="form-label">Tema ou Mensagem</label>
+              <input type="text" class="form-input" id="rp-post-tema" placeholder="Ex: Dica rápida sobre saúde / Frase motivacional de segunda-feira" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Posição da Área de Texto Limpa (Placeholder)</label>
+              <select class="form-select" id="rp-post-posicao">
+                <option value="lado-direito">Lado Direito</option>
+                <option value="lado-esquerdo">Lado Esquerdo</option>
+                <option value="inferior">Parte Inferior</option>
+                <option value="topo">Parte Superior</option>
+                <option value="centro-desfocado">Centro Desfocado</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Expressão e Ação</label>
+              <input type="text" class="form-input" id="rp-post-expressao" placeholder="Ex: Apontando para o lado do texto com expressão confiante" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Vestimenta (Roupa)</label>
+              <input type="text" class="form-input" id="rp-post-roupa" placeholder="Ex: Jaleco médico / Roupa profissional elegante" />
+            </div>
+          </div>
+
+          <button class="generate-btn" onclick="generateImagemPessoal()">
+            <span>Gerar prompt RostoIA →</span>
+          </button>
+
+          <div class="output-area" id="rp-output">
+            <div class="output-header">
+              <span class="output-header-title">Passo 2: Prompt DALL-E RostoIA</span>
+              <button class="copy-btn" onclick="copyOutput('rp-result', this)">Copiar Prompt</button>
+            </div>
+            <textarea readonly class="output-text" id="rp-result"></textarea>
+            <div class="output-footer">
+              <span class="footer-label">Passo 3: Cole na sua IA de imagens favorita</span>
+              <div class="ia-links">
+                <a href="https://chatgpt.com" target="_blank" class="ia-link chatgpt">Abrir ChatGPT (DALL-E)</a>
+                <a href="https://ideogram.ai" target="_blank" class="ia-link ideogram">Abrir Ideogram</a>
+                <a href="https://midjourney.com" target="_blank" class="ia-link midjourney">Abrir Midjourney</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </main>
 
 <footer>
   <div class="footer-logo">
-    <img src="images/logo-white.png" alt="S·Lab Logo">
+    <img src="images/logo-white.png" alt="S-LAB Logo">
   </div>
-  <div class="footer-sub">Richard Vieira · RV · 2026 · IA na Prática</div>
+  <div class="footer-sub">S-LAB · Laboratório de Desenvolvimento Profissional em Saúde · 2026</div>
 </footer>
 
 <script>
-// ── API KEY ──────────────────────────────────────────────────────
-let ANTHROPIC_KEY = localStorage.getItem('rv_api_key') || '';
-
-function saveApiKey() {
-  const val = document.getElementById('apiKeyInput').value.trim();
-  if (!val) return;
-  localStorage.setItem('rv_api_key', val);
-  ANTHROPIC_KEY = val;
-  const btn = document.querySelector('.api-save-btn');
-  btn.textContent = '✓ Salvo';
-  btn.style.background = '#1F7A47';
-  setTimeout(() => { btn.textContent = 'Salvar chave'; btn.style.background = 'var(--ink)'; }, 2000);
-}
-
-if (ANTHROPIC_KEY) {
-  document.getElementById('apiKeyInput').value = ANTHROPIC_KEY;
-}
 
 // ── NAVIGATION ───────────────────────────────────────────────────
 function showTab(tabName) {
@@ -1028,52 +1497,327 @@ document.querySelectorAll('.nav-tab').forEach(tab => {
   tab.addEventListener('click', () => showTab(tab.dataset.tab));
 });
 
-// ── CLAUDE API ───────────────────────────────────────────────────
-async function callClaude(prompt, btnId, spinId, outputId, resultId) {
-  if (!ANTHROPIC_KEY) {
-    alert('Cole sua chave da API Anthropic no campo acima antes de gerar.');
-    return;
-  }
-  const btn = document.getElementById(btnId);
-  const spin = document.getElementById(spinId);
-  const output = document.getElementById(outputId);
-  const result = document.getElementById(resultId);
-
-  btn.disabled = true;
-  spin.classList.add('visible');
-  output.classList.add('visible');
-  result.innerHTML = '<div class="shimmer" style="width:80%"></div><div class="shimmer" style="width:60%"></div><div class="shimmer" style="width:70%"></div>';
-
-  try {
-    const res = await fetch('https://api.anthropic.com/v1/messages', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'x-api-key': ANTHROPIC_KEY, 'anthropic-version': '2023-06-01' },
-      body: JSON.stringify({
-        model: 'claude-sonnet-4-20250514',
-        max_tokens: 1500,
-        messages: [{ role: 'user', content: prompt }]
-      })
-    });
-    const data = await res.json();
-    if (data.error) throw new Error(data.error.message);
-    const text = data.content?.[0]?.text || 'Sem resposta.';
-    result.textContent = text;
-  } catch (e) {
-    result.textContent = '⚠️ Erro: ' + e.message + '\n\nVerifique se sua chave API está correta.';
-  } finally {
-    btn.disabled = false;
-    spin.classList.remove('visible');
-  }
-}
-
 function copyOutput(resultId, btnEl) {
-  const text = document.getElementById(resultId).textContent;
+  const el = document.getElementById(resultId);
+  const text = el.tagName === 'TEXTAREA' ? el.value : el.textContent;
+  const originalText = btnEl.textContent;
   navigator.clipboard.writeText(text).then(() => {
     btnEl.textContent = '✓ Copiado!';
     btnEl.classList.add('copied');
-    setTimeout(() => { btnEl.textContent = 'Copiar'; btnEl.classList.remove('copied'); }, 2000);
+    setTimeout(() => { 
+      btnEl.textContent = originalText; 
+      btnEl.classList.remove('copied'); 
+    }, 2000);
   });
 }
+
+function showGeneratedPrompt(text, outputId, resultId) {
+  const output = document.getElementById(outputId);
+  const result = document.getElementById(resultId);
+  if (output && result) {
+    result.value = text;
+    output.classList.add('visible');
+    output.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+}
+
+function toggleRostoIAType() {
+  const val = document.getElementById('rp-tipo-produto').value;
+  if (val === 'portfolio') {
+    document.getElementById('rp-group-portfolio').style.display = 'block';
+    document.getElementById('rp-group-post').style.display = 'none';
+  } else {
+    document.getElementById('rp-group-portfolio').style.display = 'none';
+    document.getElementById('rp-group-post').style.display = 'block';
+  }
+}
+
+// ── PROMPT TEMPLATES (LOCAL) ───────────────────────────────────────
+const AGENT_TEMPLATES = {
+  idvisual: `Você é a Skill de ID Visual, designer especialista em identidade visual para profissionais da área de saúde. Você cria sistemas visuais completos e coerentes — não apenas escolha de cores, mas um conjunto de decisões que comunica autoridade, confiança e personalidade antes de qualquer palavra.
+Você pensa como designer sênior e estrategista de marca ao mesmo tempo.
+
+---
+
+[INFORMAÇÕES DE CONTEXTO DO PROFISSIONAL]
+• Especialidade/Nicho: [ESPECIALIDADE]
+• Público-alvo: [PÚBLICO-ALVO]
+• Adjetivos desejados para a marca: [ADJETIVOS]
+• Referências visuais preferidas: [REFERENCIA]
+• Elementos a evitar na marca: [EVITAR]
+
+IMPORTANTE: O briefing do profissional já foi realizado e está detalhado acima. NÃO faça perguntas. Pule a ETAPA 1 do seu fluxo padrão e prossiga diretamente para a ETAPA 2 — ENTREGA DO SISTEMA COMPLETO usando os dados fornecidos.
+
+---
+
+# REGRAS DE ENTREGA DO SISTEMA COMPLETO
+
+### 🎨 PALETA DE CORES
+**Primária:** [nome da cor] · [#HEX]
+Significado: [por que essa cor comunica os adjetivos escolhidos]
+Quando usar: [títulos, botões, destaques, elementos principais]
+
+**Secundária:** [nome da cor] · [#HEX]
+Significado: [o que ela acrescenta ou complementa]
+Quando usar: [fundos de seção, elementos de apoio, variações]
+
+**Neutra 1 (fundo):** [nome] · [#HEX]
+**Neutra 2 (superfície):** [nome] · [#HEX]
+Dica: neutras devem ter leve temperatura da cor primária — nunca puro branco.
+
+**Acento:** [nome] · [#HEX]
+Uso máximo: 10% do layout. CTAs, destaques e elements interativos.
+
+---
+
+### ✍️ TIPOGRAFIA
+**Fonte display (títulos):** [nome da fonte]
+Peso: [600–700] · Espaçamento: [negativo, -0.02em a -0.04em]
+Por que escolheu: [relação com os adjetivos da marca]
+Onde encontrar: [Google Fonts link ou nativa do sistema]
+
+**Fonte texto (corpo):** [nome da fonte]
+Peso: [400] · Tamanho mínimo: [16px em posts]
+Por que combina: [complemento com a display, legibilidade]
+Onde encontrar: [link]
+
+**Regra de combinação:**
+- Títulos: [fonte display] · tamanho [X]px · peso 600 · espaçamento [-0.03em]
+- Subtítulos: [fonte display] · tamanho [X]px · peso 400
+- Corpo: [fonte texto] · tamanho [X]px · peso 400 · espaçamento 0
+
+---
+
+### 🔷 ELEMENTOS VISUAIS RECORRENTES
+**Forma principal:** [descrição — ex: squircle arredondado]
+Uso: [como e onde aparece nos posts]
+
+**Textura/padrão:** [descrição — ex: gradiente diagonal suave]
+Uso: [fundos, sobreposições, backgrounds de cards]
+
+**Elemento de nicho:** [descrição — ex: folha minimalista, linha de vida, prato]
+Uso: [ícone recorrente em destaques e separadores]
+
+---
+
+### 🧬 DNA VISUAL — COLE EM QUALQUER PROMPT DE IMAGEM
+Estilo visual: [fotografia lifestyle / flat lay moderno / editorial clean].
+Paleta: [cor 1], [cor 2], [cor 3] — tons [quentes/frios/neutros].
+Iluminação: [soft natural light from left / difusa e suave / estúdio quente].
+Composição: [overhead / close-up / plano médio].
+Elementos recorrentes: [elemento 1], [elemento 2].
+Exclusões: no text, no watermarks, no plastic-looking skin, no artificial background, no oversaturated colors. Square 1:1 format.
+
+---
+
+### 📋 BLOCO CSS — VARIÁVEIS DA PALETA
+\`\`\`css
+:root {
+  --color-primary:    [#HEX]; /* [nome] */
+  --color-secondary:  [#HEX]; /* [nome] */
+  --color-bg:         [#HEX]; /* [nome] */
+  --color-surface:    [#HEX]; /* [nome] */
+  --color-accent:     [#HEX]; /* [nome] */
+  --color-text:       [#HEX]; /* texto principal */
+  --color-muted:      [#HEX]; /* texto secundário */
+  --font-display:     '[fonte display]', sans-serif;
+  --font-text:        '[fonte texto]', sans-serif;
+}
+\`\`\`
+
+---
+
+# ETAPA 3 — APÓS ENTREGAR O SISTEMA
+Sempre finalize com:
+"Sistema completo gerado. Você pode agora:
+- **Ajustar uma cor** → diga 'Troca a primária por algo mais [adjetivo]'
+- **Testar outra tipografia** → diga 'Tenta uma fonte mais [adjetivo]'
+- **Gerar variação dark** → diga 'Cria a versão dark desse sistema'
+- **Exportar para Canva** → diga 'Como aplicar isso no Canva'
+- **Visualizar a identidade** → diga 'Gera o banner de prévia'"
+
+Em seguida, sem esperar o usuário pedir, gere automaticamente o banner de prévia com o seguinte prompt no DALL-E:
+"Brand identity preview board for a [ESPECIALIDADE] professional. Clean flat lay composition on [COR NEUTRA 1] background. Top section: large bold typography showcase using [FONTE DISPLAY], color swatches in a horizontal row — [COR PRIMÁRIA], [COR SECUNDÁRIA], [NEUTRA 1], [NEUTRA 2], [ACENTO] — each as a rounded square with hex code label beneath in [FONTE TEXTO]. Middle section: the brand elements — [ELEMENTO RECORRENTE 1], [ELEMENTO RECORRENTE 2] and [ELEMENTO DE NICHO] displayed as isolated icons with ample white space between them. Bottom section: a mock Instagram post card using the full identity — [COR PRIMÁRIA] accent bar on left, [FONTE DISPLAY] headline in [COR PRIMÁRIA], body text in [COR NEUTRA 2], [ELEMENTO DE NICHO] as decoration. Overall mood: [ADJETIVO 1], [ADJETIVO 2], [ADJETIVO 3]. Professional brand identity board, no photography, vector style, ultra clean, no text overlapping, generous white space. 16:9 horizontal format."`,
+
+  copyAgent: `Você é Copy-Posts, assistente especialista em copywriting para Instagram de profissionais de qualquer área. Você domina os frameworks PAS, BAB e AIDA e sabe escolher o mais adequado para cada situação.
+Você escreve como um copywriter sênior que entende de psicologia do consumidor e comportamento de audiências no Instagram em 2026.
+
+---
+
+[INFORMAÇÕES DE CONTEXTO DO PROFISSIONAL]
+• Especialidade/Nicho: [ESPECIALIDADE]
+• Público-alvo e Dor principal: [PÚBLICO-ALVO]
+• Tom de voz (adjetivos): [TOM]
+• Abordagens e palavras a evitar: [EVITAR]
+
+IMPORTANTE: O briefing do profissional já foi realizado e está detalhado acima. NÃO faça perguntas. Pule as etapas iniciais de perguntas e prossiga diretamente para criar o post completo sobre o tema que eu solicitar.
+
+---
+
+# REGRAS DE ESCOLHA DE FRAMEWORK
+Escolha automaticamente o framework mais adequado, mas sempre informe qual usou e por quê ao final do post.
+- **PAS** → Audiência fria, tema de dor/problema, post educativo ou de conscientização.
+- **BAB** → Tema de transformação, resultado, antes/depois, motivação.
+- **AIDA** → Tema com oferta direta, promoção, lançamento, urgência.
+
+# ESTRUTURA DE CADA ENTREGA
+Para cada post entregue, use SEMPRE este formato:
+📌 **FRAMEWORK USADO:** [PAS / BAB / AIDA] — [1 linha explicando por que escolheu esse]
+
+✍️ **POST COMPLETO:**
+[Conteúdo do post — gancho + corpo + CTA]
+
+📲 **LEGENDA PRONTA:**
+[Post formatado para colar direto no Instagram, com espaçamentos e emojis estratégicos]
+
+#️⃣ **HASHTAGS:**
+[5 de nicho específico] + [3 amplas] + [2 de engajamento]
+
+🔁 **VARIAÇÕES RÁPIDAS:**
+- Versão mais curta (Stories): [versão de 2-3 linhas]
+- Gancho alternativo: [1 opção diferente de abertura]
+
+# REGRAS DE QUALIDADE — NUNCA QUEBRE:
+1. Máximo 150 palavras por post, salvo pedido explícito de long-form.
+2. Nenhuma dessas palavras: "transforme", "incrível", "poderoso", "revolucionário", "jornada".
+3. Nunca comece um post com "Olá", "Ei", "Você sabia que" ou "Hoje vou falar sobre".
+4. Gancho sempre na primeira linha — sem aquecimento.
+5. 1 CTA por post — nunca dois.
+6. Tom humano, não corporativo. Escreva como um ser humano enviando mensagem.
+7. Sem jargão técnico, salvo quando o usuário pedir especificamente.`,
+
+  calendario: `Você é uma skill de Calendário de Conteúdo, estrategista de conteúdo para Instagram de profissionais da área de saúde. Você transforma informações do negócio em calendários editoriais completos, prontos para executar.
+Você pensa como um estrategista de marketing — não apenas lista posts, mas distribui pilares com inteligência, varia formatos e garante que educação, autoridade, conexão e conversão apareçam no ritmo certo.
+
+---
+
+[INFORMAÇÕES DO NEGÓCIO]
+• Especialidade/Nicho: [ESPECIALIDADE]
+• Público-alvo e Dor principal: [PÚBLICO-ALVO]
+• Frequência de postagem: [NUMERO] posts por semana
+• Formatos desejados: [FORMATOS]
+• Foco de destaque deste mês: [FOCO]
+• Abordagens e temas a evitar: [EVITAR]
+
+IMPORTANTE: O briefing do profissional já foi realizado e está detalhado acima. NÃO faça perguntas. Pule a ETAPA 1 e passe diretamente para a ETAPA 2 — GERAÇÃO DO CALENDÁRIO completo em formato de tabela usando os dados fornecidos.
+
+---
+
+# REGRAS DA GERAÇÃO DO CALENDÁRIO
+
+Gere o calendário completo em formato de tabela com 5 colunas:
+| Nº | Pilar | Formato | Tema / Título | Gancho de abertura |
+
+### Distribuição obrigatória dos pilares:
+- 40% Educação — ensina algo prático do nicho
+- 25% Autoridade — cases, resultados, metodologia, prova social
+- 25% Conexão — bastidores, rotina, opinião, vulnerabilidade real
+- 10% Conversão — CTA direto para consulta, lista, produto
+
+### Regras de variedade de formato:
+- Nunca repetir o mesmo formato por 2 dias seguidos
+- Cada semana deve ter pelo menos 1 reel e 1 carrossel
+- Stories não entram na tabela — são diários e separados
+- Semana 4: mínimo 2 posts de conversão
+
+### Regras de qualidade dos temas:
+- Temas específicos, nunca genéricos ("5 erros que [PÚBLICO] comete com [TEMA]" é melhor que "Dicas de saúde")
+- Ganchos diferentes em todos os posts — variar entre pergunta, dado, afirmação polêmica, confissão e erro comum
+- Nenhum gancho pode começar com "Você sabia", "Hoje vou falar" ou "Olá"
+
+---
+
+# APÓS ENTREGAR O CALENDÁRIO
+Sempre finalize com esta mensagem exata:
+"Calendário pronto. Você pode agora:
+- **Desenvolver uma semana** → diga 'Desenvolve a semana 1'
+- **Aprofundar um post** → diga 'Desenvolve the post 7'
+- **Ajustar o calendário** → diga 'Troca os posts de conexão por algo mais leve'
+- **Exportar para texto** → diga 'Exporta o calendário em lista'"`,
+
+  carrossel: `Você é o AgentSkill Design de Posts, especialista em criação de carrosseis e imagens para Instagram de profissionais para qualquer área.
+Seu objetivo é criar o texto estruturado de cada slide e o prompt de imagem otimizado para gerar no DALL-E.
+
+Sua tarefa é criar o roteiro completo de um carrossel de 7 slides para:
+- Especialidade: [ESPECIALIDADE]
+- Tema do Carrossel: [TEMA]
+- Público-alvo: [PÚBLICO-ALVO]
+- CTA final: [CTA]
+
+Siga a estrutura e as regras do AgentSkill Design:
+
+═══════════════════════════════════
+🎨 DNA VISUAL DA SÉRIE
+═══════════════════════════════════
+Estilo: [sugira o estilo ideal]
+Paleta: [sugira 3 cores coerentes]
+Iluminação: [padrão de luz para os slides]
+Fundo: [padrão de fundo]
+Regra de exclusão: no text, no watermarks, square 1:1 format
+
+Use esse DNA em todos os prompts de imagem desta série.
+═══════════════════════════════════
+
+[SLIDE 1 — GANCHO]
+📝 Texto: [máx. 8 palavras que criam curiosidade]
+🖼️ Prompt DALL-E: [Prompt completo em inglês com os 6 elementos: Sujeito + Estilo + Iluminação + Composição + Paleta + Exclusões. Sempre terminar com: No text, no watermarks, square 1:1 format]
+
+[SLIDE 2]
+📝 Headline: [máx. 6 palavras]
+📝 Corpo: [2 linhas de apoio]
+🖼️ Prompt DALL-E: [Prompt mantendo o DNA visual — apenas o sujeito muda]
+
+... [SLIDES 3 a 5 seguem o mesmo formato] ...
+
+[SLIDE 6 — RESUMO OU BÔNUS]
+📝 Texto: [lista das dicas em bullets ou dica bônus]
+🖼️ Prompt DALL-E: [Prompt de imagem de síntese]
+
+[SLIDE 7 — CTA]
+📝 Texto: [1 ação específica]
+🖼️ Prompt DALL-E: [Prompt de encerramento — elemento visual limpo com espaço para texto]
+
+═══════════════════════════════════
+📲 LEGENDA COMPLETA
+═══════════════════════════════════
+[Legenda pronta para colar no Instagram com o gancho do Slide 1, desenvolvimento em 3-4 linhas e CTA idêntico ao Slide 7]
+
+#️⃣ HASHTAGS
+[5 de nicho] + [3 amplas] + [2 de engajamento]
+
+# REGRAS DOS PROMPTS DE IMAGEM — NUNCA QUEBRE:
+1. Sempre em inglês.
+2. Nunca usar "professional" ou "beautiful" sem especificar o que significa.
+3. Iluminação sempre detalhada.
+4. Exclusões sempre presentes: "No text, no watermarks, no plastic-looking skin, no oversaturated colors, no artificial background".
+5. Máximo 12 palavras de texto por slide. No final, dê instruções de uso dos prompts no ChatGPT.`,
+
+  apresentacao: `Você é o AgentSkill - Apresentações, especialista em criar apresentações visuais completas diretamente no ChatGPT usando o DALL-E. Você gera cada slide como uma imagem pronta — com layout, tipografia, cores e conteúdo — sem depender de nenhuma ferramenta externa.
+Você aplica a Regra dos 3 em todo slide: 1 título, 1 ideia, 1 visual. Máximo 3 bullets por slide.
+
+Sua tarefa é criar o roteiro detalhado de uma apresentação otimizado para colar no Gamma.app.
+
+[DADOS DA APRESENTAÇÃO]
+• Tema: [TEMA]
+• Público-alvo: [PÚBLICO-ALVO]
+• Número de slides: [NUMERO]
+• Objetivo/Uso: [USO]
+
+IMPORTANTE: O briefing do profissional já foi concluído. NÃO faça perguntas. Pule a ETAPA 1 do seu fluxo padrão e passe diretamente para a ETAPA 2 — GERAÇÃO DOS SLIDES de uma vez só, para que o roteiro possa ser copiado e importado diretamente no Gamma.app.
+
+Siga a estrutura por slide no output:
+[Nº] | [TÍTULO DO SLIDE] (máx. 6 palavras)
+  Ponto 1: [1 linha de texto objetivo]
+  Ponto 2: [1 linha de texto objetivo]
+  Ponto 3: [1 linha de texto objetivo]
+  Visual: [descrição do elemento visual ideal — foto, ícone, gráfico]
+  Nota: [1 linha do que falar além do slide]
+
+Siga as diretrizes de quantidade e estrutura de slides para o objetivo "[USO]":
+- Capa (Slide 1) + Introdução do Problema (Slide 2) + Desenvolvimento de 1 ideia por slide + Conclusão/Próximos Passos (Último slide)
+- Se palestra: inclua slide de estatística ou dado no Slide 3 e erro comum no Slide 5.
+- Se proposta: use a estrutura Capa -> Problema -> Método de Solução -> Prova Social -> Escopo -> CTA.`
+};
 
 // ── GENERATORS ───────────────────────────────────────────────────
 
@@ -1083,18 +1827,23 @@ function generatePCTFR() {
   const t = document.getElementById('pctfr-tarefa').value;
   const f = document.getElementById('pctfr-formato').value;
   const r = document.getElementById('pctfr-restricoes').value;
-  const prompt = `Você é especialista em prompt engineering e copywriting estratégico.
+  
+  const outputText = `[P - PAPEL]
+${p}
 
-Monte um prompt profissional estruturado no framework P·C·T·F·R com os dados abaixo:
+[C - CONTEXTO]
+${c}
 
-P (Papel): ${p}
-C (Contexto): ${c}
-T (Tarefa): ${t}
-F (Formato): ${f}
-R (Restrições): ${r}
+[T - TAREFA]
+${t}
 
-Retorne SOMENTE o prompt estruturado, pronto para uso. Bem organizado, com as marcações [P], [C], [T], [F], [R] em cada bloco. Linguagem direta, sem introduções.`;
-  callClaude(prompt, 'pctfr-btn-text', 'pctfr-spin', 'pctfr-output', 'pctfr-result');
+[F - FORMATO]
+${f}
+
+[R - RESTRIÇÕES]
+${r}`;
+  
+  showGeneratedPrompt(outputText, 'pctfr-output', 'pctfr-result');
 }
 
 function generateIdentidade() {
@@ -1102,52 +1851,46 @@ function generateIdentidade() {
   const pub = document.getElementById('iv-publico').value;
   const adj = document.getElementById('iv-adjetivos').value;
   const ref = document.getElementById('iv-referencia').value;
-  const prompt = `Você é designer especialista em identidade visual para profissionais de saúde e bem-estar.
-
-Crie o sistema de identidade visual completo para:
-Especialidade: ${esp}
-Público: ${pub}
-Personalidade da marca: ${adj}
-${ref ? 'Referência visual: ' + ref : ''}
-
-Entregue de forma organizada:
-
-[PALETA:] 2 cores primárias (hex) + 2 neutras + 1 acento de destaque. Explique o significado psicológico de cada cor.
-
-[TIPOGRAFIA:] Fonte principal + fonte de apoio e por que combinam. Indique fontes do Google Fonts.
-
-[ELEMENTOS:] 3 elementos visuais recorrentes (formas, texturas, símbolos).
-
-[DNA VISUAL:] Bloco pronto para colar em prompts de imagem no formato:
-"Estilo: [X]. Paleta: [cores]. Iluminação: [X]. Composição: [X]. Sem: [exclusões]. Square 1:1 format."
-
-Seja específico, prático e direto.`;
-  callClaude(prompt, 'iv-btn-text', 'iv-spin', 'iv-output', 'iv-result');
+  const evitar = document.getElementById('iv-evitar').value;
+  
+  let template = AGENT_TEMPLATES.idvisual;
+  template = template.replace('[ESPECIALIDADE]', esp)
+                     .replace('[PÚBLICO-ALVO]', pub)
+                     .replace('[ADJETIVOS]', adj)
+                     .replace('[REFERENCIA]', ref ? ref : 'Nenhuma referência enviada')
+                     .replace('[EVITAR]', evitar ? evitar : 'Nenhum estilo a evitar');
+                     
+  showGeneratedPrompt(template, 'iv-output', 'iv-result');
 }
 
 function generatePaleta() {
   const esp = document.getElementById('pt-especialidade').value;
   const adj = document.getElementById('pt-adjetivos').value;
-  const prompt = `Você é designer especialista em branding para profissionais de saúde.
+  
+  const outputText = `Você é designer especialista em branding e identidade visual para profissionais de saúde e bem-estar.
+Sua tarefa é criar a paleta de cores e a tipografia recomendada para:
+• Especialidade: ${esp}
+• Perfil/Adjetivos da marca: ${adj}
 
-Crie a paleta de cores e tipografia para uma ${esp} com perfil ${adj}.
+Por favor, entregue o sistema completo nos seguintes tópicos:
 
-[PALETA:]
+[PALETA DE CORES:]
 • Primária: cor principal com código hex + nome + significado psicológico
 • Secundária: cor complementar com código hex + nome + quando usar
-• Neutra 1 e 2: tons para fundo e superfície com hex
-• Acento: cor de destaque para CTAs — uso máximo 10%
+• Neutras (fundo e superfície): tons ideais com hex (nunca puro branco)
+• Acento: cor de destaque para CTAs (máximo 10% de uso)
 
 [TIPOGRAFIA:]
-• Fonte display (títulos): [nome no Google Fonts] — por que combina com o nicho
-• Fonte texto (corpo): [nome no Google Fonts] — por que garante legibilidade
-• Combinação recomendada: tamanhos e pesos para posts
+• Fonte display (títulos): [nome no Google Fonts] — por que combina com este posicionamento
+• Fonte texto (corpo): [nome no Google Fonts] — por que garante legibilidade profissional
+• Regra de combinação: tamanhos e pesos recomendados para posts de feed
 
 [CSS PRONTO:]
-Gere o bloco de variáveis CSS com todas as cores.
+Gere um bloco de variáveis CSS (:root) com as cores estruturadas.
 
 Seja direto e específico.`;
-  callClaude(prompt, 'pt-btn-text', 'pt-spin', 'pt-output', 'pt-result');
+
+  showGeneratedPrompt(outputText, 'pt-output', 'pt-result');
 }
 
 function generateDNA() {
@@ -1156,25 +1899,43 @@ function generateDNA() {
   const ilum = document.getElementById('dna-iluminacao').value;
   const comp = document.getElementById('dna-composicao').value;
   const elem = document.getElementById('dna-elementos').value;
-  const prompt = `Com base nas definições abaixo, gere o bloco DNA Visual pronto para colar no início de qualquer prompt de imagem (DALL-E, Ideogram, Midjourney).
+  
+  const outputText = `Estilo visual: ${estilo}.
+Paleta: ${cores} — tons correspondentes.
+Iluminação: ${ilum}.
+Composição: ${comp}.
+Elementos recorrentes: ${elem}.
+Exclusões: no text, no watermarks, no plastic-looking skin, no artificial background, no oversaturated colors. Square 1:1 format.
 
-Estilo: ${estilo}
-Cores: ${cores}
-Iluminação: ${ilum}
-Composição: ${comp}
-Elementos recorrentes: ${elem}
+---
 
-Formato obrigatório do bloco DNA:
-"Estilo visual: [X].
-Paleta: [cor 1], [cor 2], [cor 3] — tons [quentes/frios/neutros].
-Iluminação: [descrição].
-Composição: [descrição].
-Elementos recorrentes: [elemento 1], [elemento 2].
-Exclusões: no text, no watermarks, no plastic skin, no artificial background, no oversaturated colors. Square 1:1 format."
+### 3 VARIAÇÕES DE PROMPTS COMPATÍVEIS COM ESTE DNA:
 
-Gere também 3 variações do bloco para diferentes tipos de post (produto, pessoa, flat lay).
-Seja extremamente específico nas descrições de luz e cor.`;
-  callClaude(prompt, 'dna-btn-text', 'dna-spin', 'dna-output', 'dna-result');
+1. Para Flat Lay (Cenário Decorado):
+"Minimalist flat lay on a neutral background matching the palette of ${cores}. Elements of ${elem} arranged beautifully, clean styling, ${ilum}, overhead view. No text, no watermarks, square 1:1 format."
+
+2. Para Retrato Profissional:
+"Professional lifestyle portrait of a health practitioner in a modern office. Background subtly showing elements of ${elem}. Palette: ${cores}. Soft ${ilum}, clean composition, natural camera depth. No text, no watermarks, square 1:1 format."
+
+3. Para Elemento Abstrato:
+"Abstract artistic composition representing health and wellness. Incorporating organic shapes, elements of ${elem}, soft textures. Palette: ${cores}. ${ilum}, clean vector-like photographic style. No text, no watermarks, square 1:1 format."`;
+
+  showGeneratedPrompt(outputText, 'dna-output', 'dna-result');
+}
+
+function generateCopyAgent() {
+  const esp = document.getElementById('copy-especialidade').value;
+  const pub = document.getElementById('copy-publico').value;
+  const tom = document.getElementById('copy-tom').value;
+  const evitar = document.getElementById('copy-evitar').value;
+  
+  let template = AGENT_TEMPLATES.copyAgent;
+  template = template.replace('[ESPECIALIDADE]', esp)
+                     .replace('[PÚBLICO-ALVO]', pub)
+                     .replace('[TOM]', tom)
+                     .replace('[EVITAR]', evitar ? evitar : 'Sem palavras específicas a evitar');
+                     
+  showGeneratedPrompt(template, 'copy-agent-output', 'copy-agent-result');
 }
 
 function generatePAS() {
@@ -1182,24 +1943,46 @@ function generatePAS() {
   const pub = document.getElementById('pas-publico').value;
   const tom = document.getElementById('pas-tom').value;
   const tema = document.getElementById('pas-tema').value;
-  const prompt = `Você é copywriter especialista em ${esp} para redes sociais.
+  
+  const outputText = `Você é Copy-Posts, assistente especialista em copywriting para Instagram de profissionais de saúde e bem-estar.
+Sua tarefa é escrever um post de alto impacto usando o framework PAS (Problema -> Agitação -> Solução) com base nos seguintes dados:
 
-Escreva um post no formato PAS.
-Público: ${pub}
-Tom: ${tom}
-Tema/dor: ${tema}
+• Especialidade/Nicho: ${esp}
+• Público-alvo: ${pub}
+• Tom de voz: ${tom}
+• Tema/Dor específica: ${tema}
 
-[PROBLEMA:] 1-2 linhas nomeando a dor específica — sem introdução, vai direto.
-[AGITAÇÃO:] 2-3 linhas com consequências de não resolver. Linguagem emocional, não técnica.
-[SOLUÇÃO:] 2-3 linhas com a saída natural + CTA claro ao final.
+Use a seguinte estrutura exata para a entrega:
+📌 **FRAMEWORK USADO:** PAS — [1 linha explicando por que escolheu esse]
 
-Regras:
-- Máx. 150 palavras
-- NUNCA comece com "Olá", "Você sabia" ou "Hoje vou falar"
-- Sem a palavra "transforme"
-- Sem emojis em excesso
-- A primeira linha deve parar o scroll imediatamente`;
-  callClaude(prompt, 'pas-btn-text', 'pas-spin', 'pas-output', 'pas-result');
+✍️ **POST COMPLETO:**
+[Conteúdo do post — gancho + corpo + CTA]
+
+📲 **LEGENDA PRONTA:**
+[Post formatado para colar direto no Instagram, com espaçamentos e emojis estratégicos]
+
+#️⃣ **HASHTAGS:**
+[5 de nicho específico] + [3 amplas] + [2 de engajamento]
+
+🔁 **VARIAÇÕES RÁPIDAS:**
+- Versão mais curta (Stories): [versão de 2-3 linhas]
+- Gancho alternativo: [1 opção diferente de abertura]
+
+Regras de qualidade do post (NUNCA QUEBRE):
+1. Máximo 150 palavras por post.
+2. Nenhuma dessas palavras: "transforme", "incrível", "poderoso", "revolucionário", "jornada".
+3. Nunca comece o post com "Olá", "Ei", "Você sabia que" ou "Hoje vou falar sobre".
+4. Gancho sempre na primeira linha — sem aquecimento.
+5. 1 CTA por post — nunca dois.
+6. Tom humano, não corporativo. Escreva como um ser humano enviando mensagem.
+7. Sem jargão técnico.
+
+Abaixo estão as definições específicas do framework PAS:
+**PROBLEMA:** 1-2 linhas nomeando a dor específica. Sem introdução. Vai direto.
+**AGITAÇÃO:** 2-3 linhas aprofundando as consequências de não resolver.
+**SOLUÇÃO:** 2-3 linhas apresentando a saída + CTA claro ao final.`;
+  
+  showGeneratedPrompt(outputText, 'pas-output', 'pas-result');
 }
 
 function generateBAB() {
@@ -1207,94 +1990,135 @@ function generateBAB() {
   const before = document.getElementById('bab-before').value;
   const after = document.getElementById('bab-after').value;
   const bridge = document.getElementById('bab-bridge').value;
-  const prompt = `Você é copywriter especialista em conteúdo para Instagram.
+  
+  const outputText = `Você é Copy-Posts, assistente especialista em copywriting para Instagram de profissionais de saúde e bem-estar.
+Sua tarefa é escrever um post de alto impacto usando o framework BAB (Before -> After -> Bridge) com base nos seguintes dados:
 
-Escreva um post no formato BAB com tom inspirador.
-Público: ${pub}
+• Público-alvo: ${pub}
+• Situação frustrante atual (Before): ${before}
+• Resultado de vida desejado (After): ${after}
+• Seu método (Bridge): ${bridge}
 
-[BEFORE:] 1-2 linhas — situação frustrante atual: ${before}
-[AFTER:] 2-3 linhas — resultado de vida desejado com cenas concretas: ${after}
-[BRIDGE:] 2-3 linhas — o caminho: ${bridge} + CTA claro
+Use a seguinte estrutura exata para a entrega:
+📌 **FRAMEWORK USADO:** BAB — [1 linha explicando por que escolheu esse]
 
-Regras:
-- Máx. 130 palavras
-- Venda a vida, não o produto
-- Cenas concretas no AFTER (acordar disposta, se olhar no espelho com prazer)
-- NUNCA comece com "Olá" ou "Você sabia"
-- Primeira linha para o scroll`;
-  callClaude(prompt, 'bab-btn-text', 'bab-spin', 'bab-output', 'bab-result');
+✍️ **POST COMPLETO:**
+[Conteúdo do post — gancho + corpo + CTA]
+
+📲 **LEGENDA PRONTA:**
+[Post formatado para colar direto no Instagram, com espaçamentos e emojis estratégicos]
+
+#️⃣ **HASHTAGS:**
+[5 de nicho específico] + [3 amplas] + [2 de engajamento]
+
+🔁 **VARIAÇÕES RÁPIDAS:**
+- Versão mais curta (Stories): [versão de 2-3 linhas]
+- Gancho alternativo: [1 opção diferente de abertura]
+
+Regras de qualidade do post (NUNCA QUEBRE):
+1. Máximo 130 palavras por post.
+2. Venda a vida, não o produto. Cenas concretas no AFTER (acordar disposta, se olhar no espelho com prazer).
+3. Nenhuma dessas palavras: "transforme", "incrível", "poderoso", "revolucionário", "jornada".
+4. Nunca comece o post com "Olá", "Ei", "Você sabia que" ou "Hoje vou falar sobre".
+5. Gancho sempre na primeira linha — sem aquecimento.
+6. 1 CTA por post — nunca dois.
+7. Tom humano, não corporativo. Escreva como um ser humano enviando mensagem.
+8. Sem jargão técnico.
+
+Abaixo estão as definições específicas do framework BAB:
+**BEFORE:** 1-2 linhas descrevendo a situação frustrante atual.
+**AFTER:** 2-3 linhas pintando o resultado de vida desejado com cenas concretas.
+**BRIDGE:** 2-3 linhas mostrando o caminho entre os dois + CTA.`;
+  
+  showGeneratedPrompt(outputText, 'bab-output', 'bab-result');
 }
 
 function generateAIDA() {
   const oferta = document.getElementById('aida-oferta').value;
   const pub = document.getElementById('aida-publico').value;
   const ben = document.getElementById('aida-beneficio').value;
-  const prompt = `Você é copywriter especialista em ofertas diretas para redes sociais.
+  
+  const outputText = `Você é Copy-Posts, assistente especialista em copywriting para Instagram de profissionais de saúde e bem-estar.
+Sua tarefa é escrever um post de alto impacto usando o framework AIDA (Atenção -> Interesse -> Desejo -> Ação) com base nos seguintes dados:
 
-Escreva um post no formato AIDA para audiência quente.
-Oferta: ${oferta}
-Público: ${pub}
-Principal benefício: ${ben}
+• Oferta/Comunicação: ${oferta}
+• Público-alvo: ${pub}
+• Principal benefício: ${ben}
 
-[ATENÇÃO:] 1 linha que para o scroll — dado, pergunta ou afirmação polêmica
-[INTERESSE:] 2 linhas de por que isso é relevante AGORA
-[DESEJO:] 2 linhas de benefício concreto ou prova social
-[AÇÃO:] 1 CTA direto e específico — NUNCA dois CTAs
+Use a seguinte estrutura exata para a entrega:
+📌 **FRAMEWORK USADO:** AIDA — [1 linha explicando por que escolheu esse]
 
-Regras:
-- NUNCA comece com "Olá" ou "Hoje"
-- Sem "transforme", "alavanque", "potencialize"
-- Tom assertivo e direto`;
-  callClaude(prompt, 'aida-btn-text', 'aida-spin', 'aida-output', 'aida-result');
+✍️ **POST COMPLETO:**
+[Conteúdo do post — gancho + corpo + CTA]
+
+📲 **LEGENDA PRONTA:**
+[Post formatado para colar direto no Instagram, com espaçamentos e emojis estratégicos]
+
+#️⃣ **HASHTAGS:**
+[5 de nicho específico] + [3 amplas] + [2 de engajamento]
+
+🔁 **VARIAÇÕES RÁPIDAS:**
+- Versão mais curta (Stories): [versão de 2-3 linhas]
+- Gancho alternativo: [1 opção diferente de abertura]
+
+Regras de qualidade do post (NUNCA QUEBRE):
+1. Máximo 150 palavras por post.
+2. Nenhuma dessas palavras: "transforme", "incrível", "poderoso", "revolucionário", "jornada", "alavanque", "potencialize".
+3. Nunca comece o post com "Olá", "Ei", "Você sabia que" ou "Hoje vou falar sobre".
+4. Gancho sempre na primeira linha — sem aquecimento.
+5. 1 CTA por post — nunca dois.
+6. Tom assertivo, direto e humano. Escreva como um ser humano enviando mensagem.
+7. Sem jargão técnico.
+
+Abaixo estão as definições específicas do framework AIDA:
+**ATENÇÃO:** 1 linha que para o scroll — dado, pergunta ou afirmação ousada.
+**INTERESSE:** 2 linhas mostrando por que isso é relevante para o público.
+**DESEJO:** 2 linhas ativando o desejo com benefício concreto ou prova.
+**AÇÃO:** 1 CTA direto e específico.`;
+  
+  showGeneratedPrompt(outputText, 'aida-output', 'aida-result');
 }
 
 function generateGancho() {
   const nicho = document.getElementById('gancho-nicho').value;
   const tema = document.getElementById('gancho-tema').value;
   const tipo = document.getElementById('gancho-tipo').value;
-  const prompt = `Você é especialista em copywriting para Instagram, expert em primeiras linhas que param o scroll.
+  
+  const outputText = `Você é especialista em copywriting para Instagram, expert em primeiras linhas que param o scroll.
+Sua tarefa é criar ganchos de abertura para o seguinte tema:
 
-Crie ganchos de abertura para:
-Nicho: ${nicho}
-Tema: ${tema}
-Tipo: ${tipo}
+• Nicho/Especialidade: ${nicho}
+• Tema do Post: ${tema}
+• Tipo de Gancho solicitado: ${tipo}
 
 ${tipo === 'variado (gere 5 opções)' ? 'Gere 5 ganchos, um de cada tipo: dado+consequência, pergunta direta, afirmação polêmica, erro comum do nicho, confissão pessoal.' : `Gere 5 variações do tipo "${tipo}".`}
 
-Regras absolutas:
-- NUNCA comece com "Olá", "Hoje vou falar sobre", "Você sabia que"
-- Máx. 12 palavras por gancho
-- Cada um deve criar curiosidade imediata ou dor reconhecível
-- Numere cada gancho e explique em 1 linha por que funciona`;
-  callClaude(prompt, 'gancho-btn-text', 'gancho-spin', 'gancho-output', 'gancho-result');
+Regras absolutas (NUNCA QUEBRE):
+- NUNCA comece com "Olá", "Hoje vou falar sobre", "Você sabia que".
+- Máx. 12 palavras por gancho.
+- Cada um deve criar curiosidade imediata ou dor reconhecível.
+- Numere cada gancho e explique em 1 linha por que funciona.`;
+  
+  showGeneratedPrompt(outputText, 'gancho-output', 'gancho-result');
 }
 
 function generateCalendario() {
   const esp = document.getElementById('cal-especialidade').value;
   const pub = document.getElementById('cal-publico').value;
-  const tom = document.getElementById('cal-tom').value;
+  const formatos = document.getElementById('cal-formatos').value;
   const num = document.getElementById('cal-num').value;
-  const prompt = `Você é estrategista de conteúdo especialista em saúde e bem-estar.
-
-Crie calendário editorial de ${num} posts para o Instagram de uma ${esp} que atende ${pub}.
-
-Distribuição de pilares:
-- 40% Educação: conteúdo que ensina algo prático
-- 25% Autoridade: cases, resultados, metodologia
-- 25% Conexão: rotina, opinião, bastidores
-- 10% Conversão: CTA direto para consulta
-
-Formato: tabela com 5 colunas separadas por | 
-Nº | Pilar | Formato | Título/Tema | Gancho de abertura
-
-Regras:
-- Não repetir o mesmo formato 2 dias seguidos
-- Semana 4: mínimo 2 posts de conversão
-- Tom: ${tom}
-- Sem termos técnicos
-- NENHUM gancho começa com "Você sabia"
-- Formatos: Carrossel, Reels, Story, Post único, Antes/Depois`;
-  callClaude(prompt, 'cal-btn-text', 'cal-spin', 'cal-output', 'cal-result');
+  const foco = document.getElementById('cal-foco').value;
+  const evitar = document.getElementById('cal-evitar').value;
+  
+  let template = AGENT_TEMPLATES.calendario;
+  template = template.replace('[ESPECIALIDADE]', esp)
+                     .replace('[PÚBLICO-ALVO]', pub)
+                     .replace('[NUMERO]', num)
+                     .replace('[FORMATOS]', formatos)
+                     .replace('[FOCO]', foco)
+                     .replace('[EVITAR]', evitar ? evitar : 'Nenhum tema específico a evitar');
+                     
+  showGeneratedPrompt(template, 'cal-output', 'cal-result');
 }
 
 function generatePromptImagem() {
@@ -1303,26 +2127,28 @@ function generatePromptImagem() {
   const ilum = document.getElementById('img-iluminacao').value;
   const comp = document.getElementById('img-composicao').value;
   const pal = document.getElementById('img-paleta').value;
-  const prompt = `Você é especialista em prompt engineering para geração de imagens com IA (DALL-E, Midjourney, Ideogram).
-
-Crie um prompt de imagem profissional e detalhado com os dados abaixo:
-
-[SUJEITO:] ${suj}
-[ESTILO:] ${est}
-[ILUMINAÇÃO:] ${ilum}
-[COMPOSIÇÃO:] ${comp}
-[PALETA:] ${pal}
-
-Retorne:
-1. O prompt completo em inglês, pronto para colar no DALL-E ou Ideogram
-2. 2 variações de refinamento (ex: "Refaz com iluminação mais difusa", "Mantém o estilo, troca o elemento principal")
-
-Regras do prompt:
-- Sempre incluir: No text, no watermarks, no plastic-looking skin, no artificial background. Square 1:1 format.
-- Seja hiper-específico na luz (ângulo, temperatura, intensidade)
-- Mencione a textura do fundo
-- Use termos de fotografia profissional`;
-  callClaude(prompt, 'img-btn-text', 'img-spin', 'img-output', 'img-result');
+  
+  const styleMap = {
+    'fotografia lifestyle': 'lifestyle photography',
+    'flat lay editorial': 'editorial flat lay photography',
+    'fotografia de alimentos profissional': 'professional food photography',
+    'retrato documental': 'documentary portrait photography',
+    'ilustração clean e vetorial': 'clean vector illustration'
+  };
+  
+  const compMap = {
+    'overhead (de cima)': 'overhead view',
+    'close-up': 'close-up shot',
+    'plano médio': 'medium shot',
+    'rule of thirds, plano aberto': 'rule of thirds, wide shot'
+  };
+  
+  const mappedStyle = styleMap[est] || est;
+  const mappedComp = compMap[comp] || comp;
+  
+  const promptText = `${mappedComp} of ${suj}, styled in ${mappedStyle}. Lighting: ${ilum}. Color palette: ${pal}. Clean and minimalist background. High-resolution camera feel, natural textures. Exclusões: no text, no watermarks, no plastic-looking skin, no artificial background, no oversaturated colors. Square 1:1 format.`;
+  
+  showGeneratedPrompt(promptText, 'img-output', 'img-result');
 }
 
 function generateCarrossel() {
@@ -1330,26 +2156,14 @@ function generateCarrossel() {
   const tema = document.getElementById('car-tema').value;
   const pub = document.getElementById('car-publico').value;
   const cta = document.getElementById('car-cta').value;
-  const prompt = `Você é especialista em conteúdo para Instagram e copywriter de carrosseis que geram salvamentos.
-
-Crie o roteiro completo de um carrossel de 7 slides:
-Especialidade: ${esp}
-Tema: ${tema}
-Público: ${pub}
-CTA final: ${cta}
-
-Estrutura obrigatória:
-[SLIDE 01 — GANCHO:] Headline cliffhanger, máx. 8 palavras. Promete o que vem.
-[SLIDE 02:] Headline 6 palavras + 2 linhas de valor
-[SLIDE 03:] Headline 6 palavras + 2 linhas de valor
-[SLIDE 04:] Headline 6 palavras + 2 linhas de valor
-[SLIDE 05:] Headline 6 palavras + 2 linhas de valor
-[SLIDE 06 — BÔNUS:] Síntese ou dica exclusiva. Por que salvar.
-[SLIDE 07 — CTA:] ${cta} — 1 ação clara, sem ambiguidade.
-
-Para cada slide: indique também o visual sugerido (foto, ícone, dado).
-NUNCA: "Olá", "Você sabia", bullet points com mais de 2 linhas, dois CTAs.`;
-  callClaude(prompt, 'car-btn-text', 'car-spin', 'car-output', 'car-result');
+  
+  let template = AGENT_TEMPLATES.carrossel;
+  template = template.replace('[ESPECIALIDADE]', esp)
+                     .replace('[TEMA]', tema)
+                     .replace('[PÚBLICO-ALVO]', pub)
+                     .replace('[CTA]', cta);
+                     
+  showGeneratedPrompt(template, 'car-output', 'car-result');
 }
 
 function generateSlides() {
@@ -1357,59 +2171,148 @@ function generateSlides() {
   const pub = document.getElementById('sl-publico').value;
   const num = document.getElementById('sl-num').value;
   const uso = document.getElementById('sl-uso').value;
-  const prompt = `Você é especialista em apresentações didáticas e design de slides.
-
-Crie o roteiro de uma apresentação para ${uso}.
-Tema: ${tema}
-Público: ${pub}
-Slides: ${num}
-
-Para cada slide:
-[Nº] | [TÍTULO] (máx. 6 palavras)
-  Ponto 1: [1 linha objetiva]
-  Ponto 2: [1 linha objetiva]
-  Ponto 3: [1 linha objetiva]
-  Visual: [foto / gráfico / ícone / diagrama / dado]
-  Nota: [1 linha do que falar além do que está escrito]
-
-Estrutura obrigatória:
-- Slide 1: capa + promessa clara
-- Slides 2 a ${parseInt(num)-1}: 1 ideia cada (Regra dos 3)
-- Slide ${num}: CTA com próximos passos concretos
-
-${uso === 'palestra' ? '- Slide 3: obrigatório ter dado ou estatística\n- Slide 5: erro comum do público' : ''}
-${uso === 'consulta' ? '- Inclua slide de "próximos passos" concretos\n- Linguagem zero jargão técnico' : ''}
-${uso === 'proposta' ? '- Slide 2: problema do cliente\n- Slide 3: como você resolve\n- Slide 4: prova social' : ''}
-
-Formato otimizado para importar no Gamma.app.`;
-  callClaude(prompt, 'sl-btn-text', 'sl-spin', 'sl-output', 'sl-result');
+  
+  let template = AGENT_TEMPLATES.apresentacao;
+  template = template.replace('[TEMA]', tema)
+                     .replace('[PÚBLICO-ALVO]', pub)
+                     .replace('[NUMERO]', num)
+                     .replace('[USO]', uso);
+                     
+  showGeneratedPrompt(template, 'sl-output', 'sl-result');
 }
 
 function generateProposta() {
   const serv = document.getElementById('pr-servico').value;
   const cli = document.getElementById('pr-cliente').value;
   const num = document.getElementById('pr-num').value;
-  const prompt = `Você é especialista em propostas comerciais de alto impacto.
+  
+  const outputText = `Você é o AgentSkill - Apresentações, especialista em criar apresentações visuais completas diretamente no ChatGPT usando o DALL-E.
+Sua tarefa é criar uma proposta de serviço estruturada com ${num} slides com base nos seguintes dados:
 
-Crie proposta de ${num} slides para:
-Serviço: ${serv}
-Cliente: ${cli}
+• Serviço oferecido: ${serv}
+• Perfil do cliente: ${cli}
 
-Estrutura obrigatória:
-[Slide 1:] Problema do cliente — a dor real, sem rodeios
-[Slide 2:] Como você resolve — método específico, não genérico
-[Slide 3:] Prova social — resultados reais ou depoimento
-[Slides intermediários:] Detalhes do serviço, processo, entregas
-[Último slide:] CTA para reunião — 1 ação clara com urgência
+Siga as regras de estrutura de proposta da S-LAB:
+- Slide 1: Capa — seu nome + especialidade
+- Slide 2: O problema do cliente — a dor real, sem rodeios
+- Slide 3: Como você resolve — método de solução específico
+- Slide 4: Prova social — resultados reais ou depoimento
+- Slides intermediários: Detalhes do escopo do serviço, processo, entregas
+- Último slide: CTA para reunião — 1 ação clara com urgência
 
-Para cada slide:
+Para cada slide, forneça:
 - Título (máx. 6 palavras)
-- 2-3 pontos objetivos
-- Visual sugerido
-- Tom: confiante, direto, sem promessas genéricas
+- 2-3 pontos de texto objetivos
+- Visual sugerido (foto, ícone, gráfico)
+- Nota do apresentador (o que falar)
 
-Pronto para importar no Gamma.app.`;
-  callClaude(prompt, 'pr-btn-text', 'pr-spin', 'pr-output', 'pr-result');
+Prepare a proposta em formato otimizado para colar no Gamma.app.`;
+  
+  showGeneratedPrompt(outputText, 'pr-output', 'pr-result');
+}
+
+function generateImagemPessoal() {
+  const genero = document.getElementById('rp-genero').value;
+  const pele = document.getElementById('rp-pele').value;
+  const rosto = document.getElementById('rp-rosto').value;
+  const olhos = document.getElementById('rp-olhos').value;
+  const sobrancelhas = document.getElementById('rp-sobrancelhas').value;
+  const cabelo = document.getElementById('rp-cabelo').value;
+  const biotipo = document.getElementById('rp-biotipo').value;
+  
+  const dnaEstilo = document.getElementById('rp-dna-estilo').value;
+  const dnaLuz = document.getElementById('rp-dna-luz').value;
+  
+  const tipo = document.getElementById('rp-tipo-produto').value;
+  
+  let promptText = '';
+  
+  if (tipo === 'portfolio') {
+    const contexto = document.getElementById('rp-port-contexto').value;
+    const enquadramento = document.getElementById('rp-port-enquadramento').value;
+    const expressao = document.getElementById('rp-port-expressao').value;
+    const roupa = document.getElementById('rp-port-roupa').value;
+    
+    const contextMap = {
+      'consultorio': 'on-location medical setting, soft diffused light, realistic clinical environment',
+      'externo': 'on-location photography, ambient natural light, environment-integrated',
+      'estudio': 'clean studio, controlled soft light, neutral background',
+      'cafe': 'cozy café setting, warm ambient light, depth of field',
+      'urbano': 'urban street setting, soft natural light, city background blur'
+    };
+    
+    const framingMap = {
+      'rosto': 'close-up shot',
+      'meio-corpo': 'medium shot (waist up)',
+      'corpo-inteiro': 'full body shot'
+    };
+    
+    const styleBase = contextMap[contexto] || contexto;
+    const framingText = framingMap[enquadramento] || enquadramento;
+    
+    promptText = \`\${styleBase}, photorealistic portrait, high resolution, shot on camera.
+
+SUBJECT — maintain exactly:
+\${genero}. \${pele}. \${rosto}. \${olhos}. \${sobrancelhas}. \${cabelo}. \${biotipo ? biotipo : ''}
+Wearing: \${roupa}.
+
+EXPRESSION & ACTION: \${expressao}
+FRAMING: \${framingText}
+
+ENVIRONMENT & LIGHTING:
+Realistic setting. Lighting: \${dnaLuz}.
+Background: realistic environment, no artificial studio backdrop.
+Camera feel: natural grain, realistic depth, no over-processed skin.
+
+STYLE: \${dnaEstilo} photography. Natural skin texture.
+
+STRICT RULES:
+Do not alter facial structure, skin tone, eye color, hair color or texture.
+No studio backdrop unless requested. No plastic or over-smoothed skin.
+No text overlays. No watermarks. No unrealistic proportions.
+Square 1:1 format.\`;
+    
+  } else {
+    const tema = document.getElementById('rp-post-tema').value;
+    const posicao = document.getElementById('rp-post-posicao').value;
+    const expressao = document.getElementById('rp-post-expressao').value;
+    const roupa = document.getElementById('rp-post-roupa').value;
+    
+    const posMap = {
+      'lado-direito': 'right side',
+      'lado-esquerdo': 'left side',
+      'inferior': 'bottom area',
+      'topo': 'top area',
+      'centro-desfocado': 'blurred center'
+    };
+    
+    const posText = posMap[posicao] || posicao;
+    
+    promptText = \`Social media post, photorealistic person in branded layout. Square 1:1, Instagram feed.
+
+SUBJECT — maintain exactly:
+\${genero}. \${pele}. \${rosto}. \${olhos}. \${sobrancelhas}. \${cabelo}. \${biotipo ? biotipo : ''}
+Wearing: \${roupa}.
+
+EXPRESSION & ACTION: \${expressao}
+FRAMING: medium shot (waist up)
+
+COMPOSITION FOR TEXT:
+The \${posText} of the frame must be clean, flat, and uncluttered. Person positioned away from the text area.
+No graphic elements or textures in the text zone.
+
+VISUAL IDENTITY:
+Background: \${dnaEstilo}. Elements and Lighting: \${dnaLuz}.
+
+TEXT PLACEHOLDER:
+Blank area at the \${posText}, occupying ~30-40% of the frame. Flat, clean, high contrast with subject.
+
+STRICT RULES:
+Do not write text in the image. Do not alter facial structure, skin tone, eye color, hair or texture.
+No plastic skin. No watermarks. No unrealistic proportions. Square 1:1 format.\`;
+  }
+  
+  showGeneratedPrompt(promptText, 'rp-output', 'rp-result');
 }
 </script>
 </body>
